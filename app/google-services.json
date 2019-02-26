@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "157029129717",
+    "firebase_url": "https://alertas-uv.firebaseio.com",
+    "project_id": "alertas-uv",
+    "storage_bucket": "alertas-uv.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:157029129717:android:950cdc90c5dc3fb7",
+        "android_client_info": {
+          "package_name": "com.example.sonia.uvapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "157029129717-n3710shd0rutcr7hpr814e17iu7be7r2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCn4Dn-tDcGfWJ35n5-o1-GI42dAOitiBg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

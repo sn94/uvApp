@@ -1,0 +1,35 @@
+<resources>
+
+    <string-array name="labels_iuv">
+        <item>Bajo</item>
+        <item>Bajo</item>
+        <item>Moderado</item>
+        <item>Moderado</item>
+        <item>Moderado</item>
+        <item>Alto</item>
+        <item>Alto</item>
+        <item>Muy Alto</item>
+        <item>Muy Alto</item>
+        <item>Muy Alto</item>
+        <item>Extremadamente alto</item>
+    </string-array>
+
+
+
+    <array name="colors_iuv">
+        <item>@color/iuv_bajo</item>
+        <item>@color/iuv_bajo</item>
+        <item>@color/iuv_moderado</item>
+        <item>@color/iuv_moderado</item>
+        <item>@color/iuv_moderado</item>
+        <item>@color/iuv_alto</item>
+        <item>@color/iuv_alto</item>
+        <item>@color/iuv_muy_alto</item>
+        <item>@color/iuv_muy_alto</item>
+        <item>@color/iuv_muy_alto</item>
+        <item>@color/iuv_extremo</item>
+    </array>
+
+
+
+</resources>

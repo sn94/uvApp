@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+
+
+
+
+    <color name="iuv_bajo">#007700</color>
+    <color name="iuv_moderado">#dddd00</color>
+    <color name="iuv_alto">#ff7700</color>
+    <color name="iuv_muy_alto">#bb1111</color>
+    <color name="iuv_extremo">#aa00ff</color>
+
+
+
+</resources>

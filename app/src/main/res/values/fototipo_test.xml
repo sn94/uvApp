@@ -1,0 +1,172 @@
+<resources>
+
+
+    <string-array name="test_questions">
+
+        <item>¿Cuál es el color natural de su piel cuando no está bronceado?</item>
+        <item>¿De qué color natural es su pelo?</item>
+        <item>¿De qué color tiene los ojos?</item>
+        <item>¿Cuántas pecas tiene de manera natural en el cuerpo cuando no está bronceado?</item>
+        <item>¿Qué categoría describe mejor su herencia genética?</item>
+        <item>¿Qué categoría describe mejor su potencial de quemadura después de exponerse al sol una hora en verano?</item>
+        <item>¿Qué categoría describe mejor su potencial de bronceado?</item>
+
+    </string-array>
+
+
+    <string-array name="test_options">
+
+        <item>
+            <string-array name="q1_options">
+                <item>0 Rojiza, blanca</item>
+                <item>2 Blanca-beige</item>
+                <item>4 Beige</item>
+                <item>8 Marrón clara</item>
+                <item>12 Marrón</item>
+                <item>16 Negra</item>
+            </string-array>
+        </item>
+        <item>
+            <string-array name="q2_options">
+                <item>0 Pelirrojo, rubio claro</item>
+                <item>2 Rubio, castaño claro</item>
+                <item>4 Castaño</item>
+                <item>8 Castaño oscuro</item>
+                <item>12 Castaño oscuro-negro</item>
+                <item>16 Negro</item>
+            </string-array>
+        </item>
+        <item>
+            <string-array name="q3_options">
+                <item>0 Azul claro, verde claro, gris claro</item>
+                <item>2 Azules, verdes, grises</item>
+                <item>4 Grises, marrón claro</item>
+                <item>8 Marrones</item>
+                <item>12 Marrón Oscuro</item>
+                <item>16 Negros</item>
+            </string-array>
+        </item>
+        <item>
+            <string-array name="q4_options">
+                <item>0 Muchas</item>
+                <item>4 Algunas</item>
+                <item>6 Unas cuantas</item>
+                <item>8 Ninguna</item>
+            </string-array>
+        </item>
+        <item>
+            <string-array name="q5_options">
+                <item>0 Raza blanca de piel muy blanca</item>
+                <item>2 Raza blanca de piel clara</item>
+                <item>4 Raza blanca piel morena (Mediterráneo)</item>
+                <item>8 Oriente Medio, hindú, asiático, hispano-americano</item>
+                <item>12 Aborigen, africano, afroamericano</item>
+            </string-array>
+        </item>
+        <item>
+            <string-array name="q6_options">
+                <item>0 Siempre se quema y no se broncea nunca</item>
+                <item>2 Habitualmente se quema, pero puede broncearse ligeramente</item>
+                <item>4 Se quema ocasionalmente, pero se broncea moderadamente</item>
+                <item>8 Nunca se quema y se broncea con facilidad</item>
+                <item>10 Raramente se quema y se broncea profundamente</item>
+                <item>12 Nunca se quema</item>
+            </string-array>
+        </item>
+        <item>
+            <string-array name="q7_options">
+                <item>0 Nunca se broncea</item>
+                <item>2 Se puede broncear ligeramente</item>
+                <item>4 Se puede broncear moderadamente</item>
+                <item>8 Se puede broncear profundamente</item>
+            </string-array>
+        </item>
+
+    </string-array>
+
+
+
+    <string-array name="test_options_weight">
+
+        <item>
+            <integer-array name="w1_options">
+                <item>0</item>
+                <item>2</item>
+                <item>4</item>
+                <item>8</item>
+                <item>12</item>
+                <item>16</item>
+            </integer-array>
+        </item>
+        <item>
+            <integer-array name="w2_options">
+                <item>0</item>
+                <item>2</item>
+                <item>4</item>
+                <item>8</item>
+                <item>12</item>
+                <item>16</item>
+            </integer-array>
+        </item>
+        <item>
+            <integer-array name="w3_options">
+                <item>0</item>
+                <item>2</item>
+                <item>4</item>
+                <item>8</item>
+                <item>12</item>
+                <item>16</item>
+            </integer-array>
+        </item>
+        <item>
+            <integer-array name="w4_options">
+                <item>0</item>
+                <item>4</item>
+                <item>6</item>
+                <item>8</item>
+            </integer-array>
+        </item>
+        <item>
+            <integer-array name="w5_options">
+                <item>0</item>
+                <item>2</item>
+                <item>4</item>
+                <item>8</item>
+                <item>12</item>
+            </integer-array>
+        </item>
+        <item>
+            <integer-array name="w6_options">
+                <item>0</item>
+                <item>2</item>
+                <item>4</item>
+                <item>8</item>
+                <item>10</item>
+                <item>12</item>
+            </integer-array>
+        </item>
+        <item>
+            <integer-array name="w7_options">
+                <item>0</item>
+                <item>2</item>
+                <item>4</item>
+                <item>8</item>
+            </integer-array>
+        </item>
+
+    </string-array>
+
+
+
+
+    <string-array name="test_score">
+
+        <item>0,7</item>
+        <item>8,21</item>
+        <item>22,42</item>
+        <item>43,68</item>
+        <item>69,84</item>
+        <item>85+</item>
+
+    </string-array>
+</resources>

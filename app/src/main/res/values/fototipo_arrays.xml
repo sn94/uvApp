@@ -1,0 +1,47 @@
+<resources>
+
+    <string-array name="fototipos_title">
+
+        <item>Fototipo I</item>
+        <item>Fototipo II</item>
+        <item>Fototipo III</item>
+        <item>Fototipo IV</item>
+        <item>Fototipo V</item>
+        <item>Fototipo VI</item>
+    </string-array>
+
+    <string-array name="fototipos_features">
+
+        <item>Individuos de piel muy clara, ojos azules, pelirrojos y con pecas en la piel. Su piel, habitualmente no está expuesta al sol y es de color blanco-lechoso</item>
+        <item>Individuos de piel clara, pelo rubio, ojos azules y pecas, cuya piel, que no está habitualmente al sol, es blanca</item>
+        <item>Razas caucásicas (europeas) de piel blanca que no está expuesta habitualmente al sol</item>
+        <item>Individuos de piel morena o ligeramente amarronada, con pelo y ojos oscuros (mediterráneos, mongólicos, orientales)</item>
+        <item>Individuos de piel amarronada (amerindios, indostánicos, árabes e hispanos)</item>
+        <item>Razas negras</item>
+
+
+    </string-array>
+    
+    
+    <string-array name="fototipos_sun_effects">
+
+        <item>Presenta intensas quemaduras solares, casi no se pigmenta nunca y se descama de forma ostensible</item>
+        <item>Se quema fácil e intensamente, pigmenta ligeramente y descama de forma notoria</item>
+        <item>Se quema moderadamente y se pigmenta correctamente</item>
+        <item>Se quema moderada o mínimamente y pigmenta con bastante facilidad y de forma inmediata al exponerse al sol</item>
+        <item>Raramente se quema, pigmenta con facilidad e intensidad (siempre presenta reacción de pigmentación inmediata)</item>
+        <item>No se quema nunca y pigmenta intensamente (siempre presentan reacción de pigmentación inmediata)</item>
+
+    </string-array>
+
+
+    <string-array name="fototipos_melanin">
+        <item>Deficiente de melanina</item>
+        <item>Deficiente de melanina</item>
+        <item>Melanina suficiente</item>
+        <item>Melanina suficiente</item>
+        <item>Con proteccion melanica</item>
+        <item>Con protección melanica</item>
+    </string-array>
+
+</resources>

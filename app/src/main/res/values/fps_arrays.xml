@@ -1,0 +1,112 @@
+<resources>
+
+
+            <string-array name="recommended_fps_iuv1">
+                <item>15-20</item>
+                <item>15-20</item>
+                <item>15-20</item>
+                <item>15-20</item>
+                <item>15-20</item>
+                <item>15-20</item>
+            </string-array>
+
+
+            <string-array name="recommended_fps_iuv2">
+                <item>15-20</item>
+                <item>15-20</item>
+                <item>15-20</item>
+                <item>15-20</item>
+                <item>15-20</item>
+                <item>15-20</item>
+            </string-array>
+
+
+            <string-array name="recommended_fps_iuv3">
+                <item>15-20</item>
+                <item>15-20</item>
+                <item>15-20</item>
+                <item>15-20</item>
+                <item>15-20</item>
+                <item>15-20</item>
+            </string-array>
+
+
+            <string-array name="recommended_fps_iuv4">
+                <item>30-50</item>
+                <item>30-50</item>
+                <item>15-20</item>
+                <item>15-20</item>
+                <item>15-20</item>
+                <item>15-20</item>
+            </string-array>
+
+
+            <string-array name="recommended_fps_iuv5">
+                <item>30-50</item>
+                <item>30-50</item>
+                <item>15-20</item>
+                <item>15-20</item>
+                <item>15-20</item>
+                <item>15-20</item>
+            </string-array>
+
+
+            <string-array name="recommended_fps_iuv6">
+                <item>30-50</item>
+                <item>30-50</item>
+                <item>15-20</item>
+                <item>15-20</item>
+                <item>15-20</item>
+                <item>15-20</item>
+            </string-array>
+
+
+            <string-array name="recommended_fps_iuv7">
+                <item>50+</item>
+                <item>30-50</item>
+                <item>15-25</item>
+                <item>15-20</item>
+                <item>15-20</item>
+                <item>15-20</item>
+            </string-array>
+
+
+            <string-array name="recommended_fps_iuv8">
+                <item>50+</item>
+                <item>30-50</item>
+                <item>15-25</item>
+                <item>15-20</item>
+                <item>15-20</item>
+                <item>15-20</item>
+            </string-array>
+
+
+            <string-array name="recommended_fps_iuv9">
+                <item>50+</item>
+                <item>30-50</item>
+                <item>15-25</item>
+                <item>15-20</item>
+                <item>15-20</item>
+                <item>15-20</item>
+            </string-array>
+
+            <string-array name="recommended_fps_iuv10">
+                <item>50+</item>
+                <item>50+</item>
+                <item>30-50</item>
+                <item>15-20</item>
+                <item>15-20</item>
+                <item>15-20</item>
+            </string-array>
+
+            <string-array name="recommended_fps_iuv11">
+                <item>50+</item>
+                <item>50+</item>
+                <item>30-50</item>
+                <item>15-20</item>
+                <item>15-20</item>
+                <item>15-20</item>
+            </string-array>
+
+
+</resources>

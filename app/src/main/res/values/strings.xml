@@ -1,0 +1,41 @@
+<resources>
+    <string name="app_name">uvApp</string>
+
+    <string name="button_ant">Anterior</string>
+    <string name="button_sig">Siguiente</string>
+
+
+    <string name="Hello_text1">A ciertas horas del dia el sol es intenso. Es importante que protegas tu piel, antes debes conocer tu fototipo</string>
+    <string name="Hello_text2">Porque protegerse del sol?</string>
+    <string name="Hello_button_text1">Test de fototipo</string>
+
+
+    <string name="Fototipo_main_text1">Si no dispones de tanto tiempo, pues tomar una foto de la parte interna del antebrazo</string>
+    <string name="Fototipo_main_text2">Si quieres saber cual es tu fototipo con mayor precision responde el cuestionario</string>
+    <string name="Fototipo_main_button_text1">Tomar foto</string>
+    <string name="Fototipo_main_button_text2">Hacer el test</string>
+    <string name="Fototipo_help_text1">De que parte del brazo hacer la foto?</string>
+    <string name="Fototipo_help_text2">Trata de tomar la foto, de modo que quede algo así</string>
+    <string name="Fototipo_photo_button_text1">Tomar otra foto</string>
+    <string name="Fototipo_photo_button_text2">Evaluar</string>
+    <string name="Fototipo_result_text1">Tu piel pertenece al grupo de Fototipo </string>
+    <string name="Fototipo_result_button_text1">Caracteristicas</string>
+    <string name="Fototipo_result_button_text2">Guardar perfil</string>
+    <string name="Fototipo_result_text2">Luego de guardar tu perfil, recibiras alertas cuando la intensidad del sol sea danina</string>
+    <string name="Fototipo_result_text3">FPS</string>
+
+
+    <string name="Inicio_button_text1">Los indices de radiacion ultravioleta (IUV)</string>
+    <string name="Inicio_button_text2">Grupos de fototipos</string>
+    <string name="Inicio_button_text3">Factor de proteccion Solar (FPS)</string>
+    <string name="Inicio_button_text4">Nuevo perfil</string>
+    <string name="Inicio_button_text5">Salir</string>
+
+
+    <string name="Info_sun_effects_text1">Porque es importante la proteccion solar?</string>
+
+    <string name="Alerta_text1">El IUV en este momento es: </string>
+    <string name="Alerta_text2">FPS recomendado: </string>
+
+
+</resources>
