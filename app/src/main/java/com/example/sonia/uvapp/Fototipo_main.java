@@ -23,7 +23,7 @@ public class Fototipo_main extends AppCompatActivity {
         fm_button_test.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(This, Info_fps.class);
+                Intent intent = new Intent(This, Fototipo_questions.class);
                 startActivity(intent);
             }
         });
