@@ -73,11 +73,6 @@
                 <item>8 Se puede broncear profundamente</item>
             </string-array>
 
-
-
-    <string-array name="test_options_weight">
-
-        <item>
             <integer-array name="w1_options">
                 <item>0</item>
                 <item>2</item>
@@ -86,8 +81,7 @@
                 <item>12</item>
                 <item>16</item>
             </integer-array>
-        </item>
-        <item>
+
             <integer-array name="w2_options">
                 <item>0</item>
                 <item>2</item>
@@ -96,8 +90,7 @@
                 <item>12</item>
                 <item>16</item>
             </integer-array>
-        </item>
-        <item>
+
             <integer-array name="w3_options">
                 <item>0</item>
                 <item>2</item>
@@ -106,16 +99,14 @@
                 <item>12</item>
                 <item>16</item>
             </integer-array>
-        </item>
-        <item>
+
             <integer-array name="w4_options">
                 <item>0</item>
                 <item>4</item>
                 <item>6</item>
                 <item>8</item>
             </integer-array>
-        </item>
-        <item>
+
             <integer-array name="w5_options">
                 <item>0</item>
                 <item>2</item>
@@ -123,8 +114,7 @@
                 <item>8</item>
                 <item>12</item>
             </integer-array>
-        </item>
-        <item>
+
             <integer-array name="w6_options">
                 <item>0</item>
                 <item>2</item>
@@ -133,19 +123,13 @@
                 <item>10</item>
                 <item>12</item>
             </integer-array>
-        </item>
-        <item>
+
             <integer-array name="w7_options">
                 <item>0</item>
                 <item>2</item>
                 <item>4</item>
                 <item>8</item>
             </integer-array>
-        </item>
-
-    </string-array>
-
-
 
 
     <string-array name="test_score">
