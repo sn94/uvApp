@@ -45,7 +45,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/fq_check"
                 android:visibility="invisible"
-                android:onClick="incr_score"
+                android:onClick="show_phototype"
                 android:text="@string/Fototipo_questions_button_text1"/>
         </LinearLayout>
 

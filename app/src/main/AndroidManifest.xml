@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Info_fps"></activity>
+        <activity android:name=".Info_fototipo_single"></activity>
+        <activity android:name=".Info_fps" />
         <activity android:name=".Alerta" />
         <activity android:name=".Info_sun_effects" />
         <activity android:name=".Info_fototipo" />

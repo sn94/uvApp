@@ -30,18 +30,21 @@
             android:orientation="horizontal">
 
             <TextView
+                android:id="@+id/fr_fps_num"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/Fototipo_result_text3"/>
+                android:text="@string/Fototipo_result_text3" />
+
             <TextView
+                android:id="@+id/fr_fps"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/fr_fps"/>
+                android:layout_height="wrap_content" />
         </LinearLayout>
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:id="@+id/fr_features_button"
             android:text="@string/Fototipo_result_button_text1"/>
 
         <Button

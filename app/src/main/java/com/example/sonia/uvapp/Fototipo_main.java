@@ -9,23 +9,37 @@ import android.widget.Button;
 
 public class Fototipo_main extends AppCompatActivity {
 
-    Button fm_button_test= null;
+    Button fm_button_test, fm_button_camera;
 
-    Context This;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fototipo_main);
-        This= this;
+
 
         fm_button_test= (Button) findViewById( R.id.fm_button_test);
+        fm_button_camera= (Button) findViewById( R.id.fm_take_photo);
+
         fm_button_test.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(This, Fototipo_questions.class);
+                Intent intent = new Intent( getApplicationContext(), Fototipo_questions.class);
                 startActivity(intent);
             }
         });
+
+        fm_button_test.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) { take_photo(); }
+        });
+    }
+
+
+
+    void take_photo(){
+        Intent intent = new Intent();
+        intent.setAction("");
     }
 }

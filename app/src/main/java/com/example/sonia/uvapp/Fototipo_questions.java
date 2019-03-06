@@ -1,5 +1,6 @@
 package com.example.sonia.uvapp;
 
+import android.content.Intent;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -65,9 +66,7 @@ public class Fototipo_questions extends AppCompatActivity {
     }
 
     void forward_button_action(View v){
-        int vv=list_opc.getCheckedRadioButtonId();
-        Log.i("checked rb", vv + "  ");
-        incr_score( v);
+
 
         if( questionIndex < (questions.length - 1) )
             questionIndex= questionIndex + 1;
@@ -80,6 +79,7 @@ public class Fototipo_questions extends AppCompatActivity {
 
         }
 
+        add_score();
         load_questions();
     }
 
@@ -125,13 +125,33 @@ public class Fototipo_questions extends AppCompatActivity {
 
         int[] intArray = getResources().getIntArray(opcs_weights[questionIndex]);
         score_temp= intArray[ indice_opcion_respuesta ];
-        Log.i("AHORA PESO ES " , "  "+ score_temp);
     }
 
-    void incr_score( View v){
+    void add_score(){//acumula puntaje
+        score= score + score_temp;
+    }
+    int find_phototype(  ){
 
         score= score + score_temp;
-        Log.i("acumulado es  " , "  "+ score);
+        int fototipo=0;
+        String[] stringArray = getResources().getStringArray(R.array.test_score);
+        for( int c= 0; c < stringArray.length; c++) {
+            String a= stringArray[ c];
+            String[] split = a.split(",");
+            int min= Integer.parseInt( split[0] ); int max= Integer.parseInt(  split.length > 1 ? split[1] : split[0]);
+            if( score >= min && score <= max) fototipo=  (c+1);
+        }
+        return fototipo;
+    }
+
+
+
+    void show_phototype( View v){
+    int f= find_phototype();
+
+        Intent intent = new Intent(this, Fototipo_result.class);
+        intent.putExtra("fototipo",  f);
+        startActivity(  intent  );
     }
 
 
