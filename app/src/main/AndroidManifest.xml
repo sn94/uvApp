@@ -2,7 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.sonia.uvapp">
 
-    <application
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+<application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -15,11 +18,11 @@
         <activity android:name=".Info_sun_effects" />
         <activity android:name=".Info_fototipo" />
         <activity android:name=".Info_iuv" />
-        <activity android:name=".Fototipo_result" />
-        <activity android:name=".Fototipo_questions" />
-        <activity android:name=".Fototipo_photo" />
-        <activity android:name=".Fototipo_help" />
-        <activity android:name=".Fototipo_main" />
+        <activity android:name=".Fototipo.Fototipo_result" />
+        <activity android:name=".Fototipo.Fototipo_questions" />
+        <activity android:name=".Fototipo.Fototipo_photo" />
+        <activity android:name=".Fototipo.Fototipo_help" />
+        <activity android:name=".Fototipo.Fototipo_main" />
         <activity android:name=".Hello" />
         <activity android:name=".Inicio">
             <intent-filter>
@@ -34,6 +37,18 @@
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
+
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.example.sonia.uvapp.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths"></meta-data>
+        </provider>
+
+
     </application>
 
 </manifest>

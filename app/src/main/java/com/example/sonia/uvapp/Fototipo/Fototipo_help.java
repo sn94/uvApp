@@ -1,13 +1,15 @@
-package com.example.sonia.uvapp;
+package com.example.sonia.uvapp.Fototipo;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class Fototipo_photo extends AppCompatActivity {
+import com.example.sonia.uvapp.R;
+
+public class Fototipo_help extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_fototipo_photo);
+        setContentView(R.layout.activity_fototipo_help);
     }
 }

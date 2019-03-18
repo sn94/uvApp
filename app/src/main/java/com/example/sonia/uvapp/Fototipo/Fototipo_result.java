@@ -1,4 +1,4 @@
-package com.example.sonia.uvapp;
+package com.example.sonia.uvapp.Fototipo;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -7,6 +7,9 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import com.example.sonia.uvapp.Info_fototipo_single;
+import com.example.sonia.uvapp.R;
 
 public class Fototipo_result extends AppCompatActivity {
 
