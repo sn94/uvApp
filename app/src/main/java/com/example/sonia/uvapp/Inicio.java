@@ -8,6 +8,9 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.sonia.uvapp.Fototipo.Fototipo_main;
+import com.example.sonia.uvapp.Info.Info_fototipo;
+import com.example.sonia.uvapp.Info.Info_fps;
+import com.example.sonia.uvapp.Info.Info_iuv;
 
 public class Inicio extends AppCompatActivity {
 

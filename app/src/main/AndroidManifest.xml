@@ -12,12 +12,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Info_fototipo_single"></activity>
-        <activity android:name=".Info_fps" />
+        <activity android:name=".Info.Info_fototipo_single"></activity>
+        <activity android:name=".Info.Info_fps" />
         <activity android:name=".Alerta" />
-        <activity android:name=".Info_sun_effects" />
-        <activity android:name=".Info_fototipo" />
-        <activity android:name=".Info_iuv" />
+        <activity android:name=".Info.Info_sun_effects" />
+        <activity android:name=".Info.Info_fototipo" />
+        <activity android:name=".Info.Info_iuv" />
         <activity android:name=".Fototipo.Fototipo_result" />
         <activity android:name=".Fototipo.Fototipo_questions" />
         <activity android:name=".Fototipo.Fototipo_photo" />

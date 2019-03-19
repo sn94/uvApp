@@ -1,4 +1,4 @@
-package com.example.sonia.uvapp;
+package com.example.sonia.uvapp.Info;
 
 import android.app.Fragment;
 import android.app.FragmentManager;
@@ -11,6 +11,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.example.sonia.uvapp.R;
 
 public class Info_fototipo extends AppCompatActivity {
 

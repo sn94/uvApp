@@ -1,4 +1,4 @@
-package com.example.sonia.uvapp;
+package com.example.sonia.uvapp.Info;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -6,6 +6,7 @@ import android.util.Log;
 import android.widget.ListView;
 
 import com.example.sonia.uvapp.Adapters.info_iuv_adapter;
+import com.example.sonia.uvapp.R;
 
 import java.util.ArrayList;
 

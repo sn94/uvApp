@@ -1,7 +1,9 @@
-package com.example.sonia.uvapp;
+package com.example.sonia.uvapp.Info;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.example.sonia.uvapp.R;
 
 public class Info_sun_effects extends AppCompatActivity {
 

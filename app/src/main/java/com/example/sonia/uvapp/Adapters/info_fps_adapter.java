@@ -9,7 +9,6 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-import com.example.sonia.uvapp.Info_fps;
 import com.example.sonia.uvapp.R;
 
 import java.util.ArrayList;

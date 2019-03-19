@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Info_fps">
+    tools:context=".Info.Info_fps">
 
     <Button
         android:layout_width="wrap_content"

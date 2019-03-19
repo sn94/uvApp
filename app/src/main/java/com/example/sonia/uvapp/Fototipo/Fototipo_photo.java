@@ -13,14 +13,25 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.example.sonia.uvapp.R;
+import com.example.sonia.uvapp.retrofits.Cliente;
+import com.example.sonia.uvapp.retrofits.Data;
+import com.example.sonia.uvapp.retrofits.UvappInterface;
+import com.example.sonia.uvapp.retrofits.UvappResponse;
 
 import java.io.File;
 import java.io.FileDescriptor;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+
+import okhttp3.MediaType;
+import okhttp3.RequestBody;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class Fototipo_photo extends AppCompatActivity {
 
@@ -37,6 +48,10 @@ public class Fototipo_photo extends AppCompatActivity {
     Uri photoUri;
     Intent intent_for_take_photo;
     static final int REQUEST_TAKE_PHOTO = 2;
+
+
+    UvappInterface uvappInterface=null;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,14 +77,63 @@ public class Fototipo_photo extends AppCompatActivity {
                 take_photo();
             }
         });
+        button_evaluate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
+                //Enviar foto al servidor
+
+                File file = new File( currentPhotoPath);
+                RequestBody fbody = RequestBody.create(MediaType.parse("image/*"), file);
+
+                uvappInterface = Cliente.buildService(UvappInterface.class);//se invoca a buildService definido en la clase CLIENTE
+                Data x= new Data( "sonia");//Aqui se adjunta la foto
+
+                sendNetworkRequestUser(   fbody  );
+            }
+        });
     }
+
+
+    /**
+     * Metodo para enviar peticiones HTTP
+     */
+
+    private void sendNetworkRequestUser(RequestBody data) {
+
+
+        Call<UvappResponse> call =uvappInterface.phototype( data);
+        call.enqueue(new Callback<UvappResponse>() {
+            @Override
+            public void onResponse(Call<UvappResponse> call, Response<UvappResponse> response) {
+                switch (response.body().getEstado()) {
+                    case 201:
+                        Toast.makeText( getApplicationContext(), "Sucessful Sign Up!", Toast.LENGTH_SHORT).show();
+                        break;
+                    case 409:
+                        Toast.makeText(getApplicationContext(), "Response Failure" + response.body().getEstado(), Toast.LENGTH_SHORT).show();
+                        break;
+                    default:
+                        Toast.makeText(getApplicationContext(), "Request not Processed" + response.body().getEstado(), Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<UvappResponse> call, Throwable t) {
+                Toast.makeText( getApplicationContext(), "Failure" + t.fillInStackTrace(), Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+
+
+
 
 
     /***
      *
      * Methods for receiving intent result
-     * @return
+     *
      */
     Bitmap show_image_by_bundle(){
 
