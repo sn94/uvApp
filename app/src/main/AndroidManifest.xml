@@ -20,7 +20,7 @@
         <activity android:name=".Info.Info_iuv" />
         <activity android:name=".Fototipo.Fototipo_result" />
         <activity android:name=".Fototipo.Fototipo_questions" />
-        <activity android:name=".Fototipo.Fototipo_photo" />
+        <activity android:name=".Fototipo.Fototipo_photo_tono" />
         <activity android:name=".Fototipo.Fototipo_help" />
         <activity android:name=".Fototipo.Fototipo_main" />
         <activity android:name=".Hello" />

@@ -19,6 +19,8 @@
     <string name="Fototipo_help_text2">Trata de tomar la foto, de modo que quede algo así</string>
     <string name="Fototipo_photo_button_text1">Tomar foto</string>
     <string name="Fototipo_photo_button_text2">Evaluar</string>
+    <string name="Fototipo_photo_button_text3">Abrir foto</string>
+    <string name="Fototipo_photo_toast_text1">TU TONO DE PIEL ES</string>
     <string name="Fototipo_result_text1">Tu piel pertenece al grupo de Fototipo </string>
     <string name="Fototipo_result_button_text1">Caracteristicas</string>
     <string name="Fototipo_result_button_text2">Guardar perfil</string>

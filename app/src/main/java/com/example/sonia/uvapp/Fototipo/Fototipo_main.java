@@ -46,11 +46,12 @@ public class Fototipo_main extends AppCompatActivity {
 
 
     void take_photo(){
-        startActivity( new Intent( this, Fototipo_photo.class) );
+        startActivity( new Intent( this, Fototipo_photo_tono.class) );
     }
 
 
 
+     //Treesirichod, A., Chansakulporn, S., & Wattanapan, P. (2014). Correlation Between Skin Color Evaluation by Skin Color Scale Chart and Narrowband Reflectance Spectrophotometer. Indian Journal of Dermatology, 59(4), 339–342. https://doi.org/10.4103/0019-5154.135476
 
 
 
