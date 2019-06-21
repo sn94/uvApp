@@ -31,7 +31,7 @@
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/Fototipo_photo_button_text1"
+                android:text="@string/Fototipo_device_button_text1"
                 android:onClick="take_photo"
                 android:id="@+id/fp_take_photo_button"/>
             <Button

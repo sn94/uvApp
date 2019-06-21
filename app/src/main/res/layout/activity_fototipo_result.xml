@@ -1,18 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Fototipo.Fototipo_result">
+    android:orientation="vertical" >
 
 
-    <LinearLayout
+    <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-
-
+        android:layout_height="wrap_content"
+        android:id="@+id/fr_nickname"
+        />
 
         <TextView
             android:layout_width="match_parent"
@@ -45,16 +43,20 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/fr_features_button"
+            android:onClick="ver_caracteristicas_fototipo"
             android:text="@string/Fototipo_result_button_text1"/>
 
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/Fototipo_result_button_text2"/>
+
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/Fototipo_result_text2"/>
-    </LinearLayout>
-</android.support.constraint.ConstraintLayout>
+
+        <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="guardar_userdata"
+        android:text="@string/Fototipo_result_button_text2"/>
+
+</LinearLayout>

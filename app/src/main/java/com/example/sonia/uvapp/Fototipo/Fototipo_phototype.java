@@ -1,14 +1,12 @@
 package com.example.sonia.uvapp.Fototipo;
 
 import android.content.Intent;
-import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.v4.content.FileProvider;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -30,7 +28,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class Fototipo_photo_tono extends AppCompatActivity {
+public class Fototipo_phototype extends AppCompatActivity {
 
 
 
@@ -62,12 +60,10 @@ public class Fototipo_photo_tono extends AppCompatActivity {
 
     void create_views(){
 
-        taken_photo= (ImageView) findViewById( R.id.fp_taken_photo);
-        button_take_photo= (Button) findViewById( R.id.fp_take_photo_button);
-        button_evaluate= (Button) findViewById( R.id.fp_evaluate);
-        button_open= (Button) findViewById( R.id.fp_open_photo_button);
-
-
+        taken_photo= (ImageView) findViewById( R.id.fp_taken_photo);//only a view for display the photo
+        button_take_photo= (Button) findViewById( R.id.fp_take_photo_button); //for taking a photo
+        button_evaluate= (Button) findViewById( R.id.fp_evaluate);  // for send the photo to the server
+        button_open= (Button) findViewById( R.id.fp_open_photo_button);//open a photo
     }
 
 
@@ -89,37 +85,7 @@ public class Fototipo_photo_tono extends AppCompatActivity {
      * Metodo para enviar peticiones HTTP
      */
 
-    public void sendNetworkRequestUser( View v  ) {
 
-        uvappInterface = Cliente.buildService(UvappInterface.class);//se invoca a buildService definido en la clase CLIENTE
-        /***Preparar foto**********/
-        File file = null;
-        if( currentPhotoPath.equals("")) //Se abrio foto
-            file = new File(  help.getRealPath( getApplicationContext(), photoUri)  );//Se pasa a File() una URI
-        else // Foto recien tomanda
-            file = new File(  currentPhotoPath );                                      //Se pasa a File() un string (la ruta abs.)
-
-        RequestBody requestFile = RequestBody.create(MediaType.parse("image/*"),file);
-        MultipartBody.Part body = MultipartBody.Part.createFormData("foto",file.getName(),requestFile);
-        /**************************/
-        Call<UvappResponse> call =uvappInterface.phototype(   body);
-        call.enqueue(new Callback<UvappResponse>() {
-            @Override
-            public void onResponse(Call<UvappResponse> call, Response<UvappResponse> response) {
-
-                UvappResponse body= response.body();
-                if(  body.getEstado() != 400){
-                     Toast.makeText( getApplicationContext(), "TU TONALIDAD ES "+  body.getTone(), Toast.LENGTH_LONG).show();
-                 }
-
-            }
-
-            @Override
-            public void onFailure(Call<UvappResponse> call, Throwable t) {
-                Toast.makeText( getApplicationContext(), "Failure" + t.fillInStackTrace(), Toast.LENGTH_SHORT).show();
-            }
-        });
-    }
 
 
 
@@ -182,7 +148,6 @@ public class Fototipo_photo_tono extends AppCompatActivity {
      */
 
 
-
     void show_photo_full_size(){
 
        Bitmap foto_bitmap= null;
@@ -206,14 +171,17 @@ public class Fototipo_photo_tono extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         /*** AL TOMAR UNA FOTO  *********/
-        if(  requestCode == REQUEST_TAKE_PHOTO  &&  resultCode== RESULT_OK ){
-            show_photo_full_size();
+        if(  requestCode == REQUEST_TAKE_PHOTO  &&  resultCode== RESULT_OK ){//foto recien tomada
+             show_photo_full_size();
             //show_mini_photo( data.getExtras());
             //Object data1 = data.getExtras().get("data");
             //taken_photo.setImageBitmap( (Bitmap)  data1);
         }//end request type check
+
+
+
         /***  AL ABRIR UNA FOTO  **************/
-        if( requestCode == READ_REQUEST_CODE && resultCode== RESULT_OK){
+        if( requestCode == READ_REQUEST_CODE && resultCode== RESULT_OK){//Despues de abrir la foto
             Uri uri = null;
             if (data != null) {
                 uri = data.getData();
@@ -223,6 +191,17 @@ public class Fototipo_photo_tono extends AppCompatActivity {
             }
 
         }
+
+
+
+        if(resultCode == 3535){
+
+            //Este seria el bitmap de nuestra imagen cortada.
+            Bitmap imagenCortada = (Bitmap) data.getExtras().get("return-data");
+            taken_photo.setImageBitmap( imagenCortada );
+        }
+
+
     }
 
 

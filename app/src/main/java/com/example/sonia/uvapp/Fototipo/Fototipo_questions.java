@@ -4,7 +4,9 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -33,6 +35,12 @@ public class Fototipo_questions extends AppCompatActivity {
     Button fq_ant, fq_sig, finish_b;
     RadioGroup list_opc;
 
+
+
+
+    String nick_="";
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,7 +51,9 @@ public class Fototipo_questions extends AppCompatActivity {
         //views
        crear_views();
 
-        load_questions();
+       load_questions();
+
+       nick_= getIntent().getExtras().getString("nick");
     }
 
 
@@ -146,12 +156,16 @@ public class Fototipo_questions extends AppCompatActivity {
 
 
     void show_phototype( View v){
-    int f= find_phototype();
 
-        Intent intent = new Intent(this, Fototipo_result.class);
-        intent.putExtra("fototipo",  f);
-        startActivity(  intent  );
+    int f= find_phototype();//1-6
+
+        Intent i= new Intent( this, Fototipo_result.class);
+        i.putExtra("nick", nick_);
+        i.putExtra("fototipo", String.valueOf(  f ));
+        startActivity( i );
+        finish();
     }
+
 
 
 }

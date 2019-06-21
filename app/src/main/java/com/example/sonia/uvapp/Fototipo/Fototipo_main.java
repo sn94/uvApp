@@ -3,55 +3,42 @@ package com.example.sonia.uvapp.Fototipo;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.example.sonia.uvapp.R;
 
 public class Fototipo_main extends AppCompatActivity {
 
-    Button fm_button_test, fm_button_camera;
-
+    EditText usernick;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fototipo_main);
-
-
-        //boton para hacer el Test de Fitzpatrick
-        fm_button_test= (Button) findViewById( R.id.fm_button_test);
-        //boton para hacer el test de fototipo con foto
-        fm_button_camera= (Button) findViewById( R.id.fm_take_photo);
-
-        fm_button_test.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent( getApplicationContext(), Fototipo_questions.class);
-                startActivity(intent);
-            }
-        });
-
-        fm_button_camera.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) { take_photo(); }
-        });
+        usernick= (EditText) findViewById( R.id.fm_nick);
     }
 
 
 
 
-
-
-
-
-    void take_photo(){
-        startActivity( new Intent( this, Fototipo_photo_tono.class) );
+    public void test_visual( View v){
+        //activar dispositivo
+        Log.i("ACTIVANDO DISPOSITIVO", "ACTIVANDO");
     }
 
+    public void test_fitzpatrick( View v){
+        Intent intent = new Intent( getApplicationContext(), Fototipo_questions.class);
+        intent.putExtra("nick",  usernick.getText().toString());
+        startActivity(intent);
+    }
 
-
-     //Treesirichod, A., Chansakulporn, S., & Wattanapan, P. (2014). Correlation Between Skin Color Evaluation by Skin Color Scale Chart and Narrowband Reflectance Spectrophotometer. Indian Journal of Dermatology, 59(4), 339–342. https://doi.org/10.4103/0019-5154.135476
 
 
 

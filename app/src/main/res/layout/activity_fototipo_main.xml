@@ -1,33 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Fototipo.Fototipo_main">
+    tools:context=".Fototipo.Fototipo_main"
+    android:orientation="vertical"
+   >
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/fm_nick"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/Fototipo_main_text1"/>
+
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/fm_take_photo"
-                android:text="@string/Fototipo_photo_button_text1"/>
+                android:id="@+id/fm_use_detector_device"
+                android:onClick="test_visual"
+                android:text="@string/Fototipo_device_button_text1"/>
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:drawableStart="@drawable/abc_text_cursor_material"/>
+                android:id="@+id/fm_help_visual_test" />
         </LinearLayout>
+
+
+
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -36,7 +46,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/Fototipo_main_button_text2"
+            android:onClick="test_fitzpatrick"
             android:id="@+id/fm_button_test"/>
 
-    </LinearLayout>
-</android.support.constraint.ConstraintLayout>
+
+</LinearLayout>

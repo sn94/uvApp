@@ -2,67 +2,125 @@ package com.example.sonia.uvapp;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.sonia.uvapp.Fototipo.Fototipo_main;
 import com.example.sonia.uvapp.Info.Info_fototipo;
 import com.example.sonia.uvapp.Info.Info_fps;
 import com.example.sonia.uvapp.Info.Info_iuv;
+import com.example.sonia.uvapp.retrofits.Cliente;
+import com.example.sonia.uvapp.retrofits.UvappInterface;
+import com.example.sonia.uvapp.retrofits.UvappResponse;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.iid.FirebaseInstanceId;
+import com.google.firebase.iid.InstanceIdResult;
+
+import org.w3c.dom.Text;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class Inicio extends AppCompatActivity {
-
-
-    Context This= null;
-    Button i_nuevo_perfil, i_info_iuv, i_info_foto, i_info_fps=  null;
 
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_inicio);
-        This= this;
-        i_nuevo_perfil= (Button) findViewById(R.id.i_nuevo_perfil);
-        i_info_iuv=   (Button) findViewById(R.id.i_info_iuv);
-        i_info_foto= (Button) findViewById( R.id.i_info_foto);
-        i_info_fps= (Button) findViewById( R.id.i_info_fps);
+        if( existe_userdata()){
+            setContentView(R.layout.activity_inicio_con_auth);
+            show_user_data();
+        }else{
+            setContentView(R.layout.activity_inicio_sin_auth);
+        }
 
-
-        i_nuevo_perfil.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(This, Fototipo_main.class);
-                startActivity(intent);
-            }
-        });
-        i_info_iuv.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(This, Info_iuv.class);
-                startActivity(intent);
-            }
-        });
-        i_info_foto.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(This, Info_fototipo.class);
-                startActivity(intent);
-            }
-        });
-
-        i_info_fps.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(This, Info_fps.class);
-                startActivity(intent);
-            }
-        });
-
+        obtener_token();
 
     }
+
+
+    void show_user_data(){
+        SharedPreferences preferences = getSharedPreferences( "uvapp", Context.MODE_PRIVATE);
+        TextView user= (TextView)findViewById( R.id.inicio_nick_name);
+        TextView phot= (TextView)findViewById( R.id.inicio_user_phototype);
+        user.setText( preferences.getString("nick", "") );
+        phot.setText( "FOTOTIPO "+ preferences.getString( "fototipo", ""));
+    }
+
+    boolean existe_userdata(){
+        SharedPreferences preferences = getSharedPreferences("uvapp", Context.MODE_PRIVATE);
+        String f= preferences.getString("fototipo", "");
+        String n= preferences.getString("nick", "");
+        return !f.equals("") && !n.equals("") ;
+    }
+
+    public void nuevo_perfil( View v){
+        Intent intent = new Intent( this, Fototipo_main.class);
+        startActivity(intent);
+    }
+
+    public void borrar_perfil(View v){
+        SharedPreferences preferences = getSharedPreferences("uvapp", Context.MODE_PRIVATE);
+        SharedPreferences.Editor edit = preferences.edit();
+        edit.clear();
+        edit.apply();
+        Toast.makeText( getBaseContext(), "Perfil borrado!", Toast.LENGTH_SHORT).show();
+        Intent i= new Intent( this, Inicio.class);
+        startActivity( i);
+        finish();
+    }
+
+
+
+    public void info_iuv(View v){
+        Intent intent = new Intent( this, Info_iuv.class);
+        startActivity(intent);
+    }
+
+    public void info_fototipos(View v){
+        Intent intent = new Intent( this, Info_fototipo.class);
+        startActivity(intent);
+    }
+
+    public void info_fps( View v){
+        Intent intent = new Intent( this, Info_fps.class);
+        startActivity(intent);
+    }
+
+
+
+
+    void obtener_token(){
+        FirebaseInstanceId.getInstance().getInstanceId()
+                .addOnCompleteListener(new OnCompleteListener<InstanceIdResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<InstanceIdResult> task) {
+                        if (!task.isSuccessful()) {
+                            Log.w( "fallado", "getInstanceId failed", task.getException());
+                            return;
+                        }
+
+                        // Get new Instance ID token
+                        String token = task.getResult().getToken();
+
+                        // Log and toast
+                        Log.d("TOKEN",  token);
+                        Toast.makeText( getBaseContext(), token, Toast.LENGTH_SHORT).show();
+                    }
+                });
+    }
+
 
 
 

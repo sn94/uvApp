@@ -3,15 +3,15 @@ package com.example.sonia.uvapp.retrofits;
 
 public class UvappResponse {
 
-    private String tone;
+    private String phototype;
     private int estado;
 
-    public String getTone() {
-        return tone;
+    public String getPhototype() {
+        return phototype;
     }
 
-    public void setTone(String tone) {
-        this.tone = tone;
+    public void setPhototype(String phototype) {
+        this.phototype = phototype;
     }
 
     public int getEstado() {
