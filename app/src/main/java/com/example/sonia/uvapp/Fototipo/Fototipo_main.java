@@ -29,8 +29,11 @@ public class Fototipo_main extends AppCompatActivity {
 
 
     public void test_visual( View v){
-        //activar dispositivo
-        Log.i("ACTIVANDO DISPOSITIVO", "ACTIVANDO");
+
+        Intent intent = new Intent( getApplicationContext(), Fototipo_visual_test.class);
+        intent.putExtra("nick",  usernick.getText().toString());
+        startActivity(intent);
+
     }
 
     public void test_fitzpatrick( View v){

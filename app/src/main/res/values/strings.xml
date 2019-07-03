@@ -28,7 +28,7 @@
     <string name="Fototipo_result_text2">Luego de guardar tu perfil, recibiras alertas cuando la intensidad del sol sea danina</string>
     <string name="Fototipo_result_text3">FPS min.</string>
     <string name="Fototipo_questions_button_text1">Evaluar</string>
-
+    <string name="Fototipo_visual_test_button_text1">Iniciar test de piel </string> 
     <string name="Inicio_button_text1">Los indices de radiacion ultravioleta (IUV)</string>
     <string name="Inicio_button_text2">Grupos de fototipos</string>
     <string name="Inicio_button_text3">Factor de proteccion Solar (FPS)</string>

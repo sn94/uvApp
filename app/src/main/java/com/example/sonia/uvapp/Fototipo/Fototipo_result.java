@@ -42,8 +42,9 @@ public class Fototipo_result extends AppCompatActivity {
         determ_fps();
     }
 
-
-
+    //clave de servidor  AAAAJI-qXfU:APA91bGsyhz1yVUw45K-nNq3jyK-VFsC-ORkItNkUpHut_Bd0g6H122CHPwejKlrFngiihRb8MwmmoWS-TPUGzC3S8iB_DdzzXVO7TCtxOeXOwep_lvJOIhzDfFzuEwBaCuNe4ZxUYnZ
+    //api web key  AIzaSyCdRbuLe2MckTBa_9XDLveUY-bTgEI6Ff0
+//cnZDJimhpGs:APA91bEHk3uW91hRhoUArS9bmszHBVegLqTUjmbocuKd6R_2LBWLmJ1bt8L4J6fl-pzXsfWiHFFdw0ImY1j1Oib5-nem97iVmrnqn-k2yG4wDe4LquvBJd0C_WL2bnCESm5zEn0GNcY0
     String obtener_token(){
 
         FirebaseInstanceId.getInstance().getInstanceId()

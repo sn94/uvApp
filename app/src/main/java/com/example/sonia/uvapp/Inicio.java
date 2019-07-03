@@ -45,7 +45,7 @@ public class Inicio extends AppCompatActivity {
             setContentView(R.layout.activity_inicio_sin_auth);
         }
 
-        obtener_token();
+
 
     }
 
@@ -101,25 +101,7 @@ public class Inicio extends AppCompatActivity {
 
 
 
-    void obtener_token(){
-        FirebaseInstanceId.getInstance().getInstanceId()
-                .addOnCompleteListener(new OnCompleteListener<InstanceIdResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<InstanceIdResult> task) {
-                        if (!task.isSuccessful()) {
-                            Log.w( "fallado", "getInstanceId failed", task.getException());
-                            return;
-                        }
 
-                        // Get new Instance ID token
-                        String token = task.getResult().getToken();
-
-                        // Log and toast
-                        Log.d("TOKEN",  token);
-                        Toast.makeText( getBaseContext(), token, Toast.LENGTH_SHORT).show();
-                    }
-                });
-    }
 
 
 
