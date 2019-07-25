@@ -7,11 +7,15 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.support.annotation.Nullable;
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.example.sonia.uvapp.R;
 
@@ -25,10 +29,22 @@ public class Fototipo_visual_test extends AppCompatActivity {
 
 
 
+    String nick_="";
+
+    /**** Vista para ser agregada programaticamente**/
+    View panel_progress_test= null;
+    TextView progress_test_label, progress_test_fototipo,progress_test_rgb;
+    Button progress_test_skin;
+
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fototipo_visual_test);
+        nick_= getIntent().getExtras().getString("nick");
+        ini_analysis_progress();
     }
 
 
@@ -36,7 +52,12 @@ public class Fototipo_visual_test extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
         unregisterReceiver( receiver );
+        //desactivar bluetooth
+        bluetoothAdapter.disable();
     }
+
+
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if( requestCode == REQUEST_ENABLE_BT  &&  resultCode == RESULT_OK  ){
@@ -44,12 +65,6 @@ public class Fototipo_visual_test extends AppCompatActivity {
             discoverDevices();
         }
     }
-
-
-
-
-
-
 
 
 
@@ -72,7 +87,8 @@ public class Fototipo_visual_test extends AppCompatActivity {
                 String deviceName = device.getName();
                 String deviceHardwareAddress = device.getAddress(); // MAC address
                 Log.i("device name",   deviceName);
-                Log.i("device mac add",  deviceHardwareAddress);
+                Log.i("device mac add",  deviceHardwareAddress);//00:18:96:B0:08:20
+                if( deviceName.equals("HC05"))
                 new ConnectThread( device ).run();
             }
         }
@@ -90,15 +106,18 @@ public class Fototipo_visual_test extends AppCompatActivity {
 
 
     void discoverDevices(){
+
         // Register for broadcasts when a device is discovered.
-        IntentFilter filter = new IntentFilter(BluetoothDevice.ACTION_FOUND);
-        registerReceiver(receiver, filter);
-        bluetoothAdapter.startDiscovery();
+            IntentFilter filter = new IntentFilter(BluetoothDevice.ACTION_FOUND);//accion Dispositivo encontrado
+            registerReceiver(receiver, filter);
+            bluetoothAdapter.startDiscovery();
+            //Register ya creado
+
     }
 
 
 
-    void start_prototype_by_bluetooth(){
+    public void start_prototype_by_bluetooth( View v){
         if( isBluetoothSupported()){
             if(  isBluetoothEnabled()){
                 discoverDevices();
@@ -115,21 +134,49 @@ public class Fototipo_visual_test extends AppCompatActivity {
 
 
 
+    void ini_analysis_progress() {
+        LayoutInflater layinf = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
+        panel_progress_test = layinf.inflate(R.layout.fototipo_visual_test_onprogress, (LinearLayout) findViewById(R.id.fvt_testing_contenedor));
+        LinearLayout panel_new= panel_progress_test.findViewById( R.id.fvt_testing_contenedor);
+        //label
+        progress_test_label = (TextView) panel_progress_test.findViewById(R.id.fvt_testing_label);
+        progress_test_label.setText(R.string.Fototipo_visual_test_text1);
+        //fototipo
+        progress_test_fototipo = (TextView) panel_progress_test.findViewById(R.id.fvt_testing_fototipo);
+        //rgb
+        progress_test_rgb = (TextView) panel_progress_test.findViewById(R.id.fvt_testing_rgb);
+        //color
+        progress_test_skin = (Button) panel_progress_test.findViewById(R.id.fvt_testing_skin);
 
+        LinearLayout padre = (LinearLayout) findViewById(R.id.fvt_contenedor);
+        padre.addView( panel_new );
 
-    public void iniciar_test(View w){
-        start_prototype_by_bluetooth();
-        /*
-        //activar dispositivo
-        Log.i("ACTIVANDO DISPOSITIVO", "ACTIVANDO");
+    }
 
-        int f=  1;//1-6
+   public  void update_analysis_progress( String f, int r,int g,int b){
 
+        progress_test_fototipo.setText( f );
+        progress_test_rgb.setText(r+","+g+","+b);
+        progress_test_skin.setBackgroundColor( Color.rgb( r,g,b) );
+    }
+    public  void update_analysis_progress( String f, String r, String g, String b){
+
+        progress_test_fototipo.setText( f );
+        progress_test_rgb.setText(r+","+g+","+b);
+        progress_test_skin.setBackgroundColor( Color.rgb( Integer.parseInt( r) ,  Integer.parseInt( g),  Integer.parseInt( b) ) );
+    }
+    public void remove_analysis_progress(){
+        LinearLayout padre= (LinearLayout)findViewById( R.id.fvt_contenedor);
+        padre.removeView( panel_progress_test );
+    }
+
+   public   void show_result(View v){
+        String f=  "X";//1-6
         Intent i= new Intent( this, Fototipo_result.class);
         i.putExtra("nick", nick_);
-        i.putExtra("fototipo", String.valueOf(  f ));
+        i.putExtra("fototipo",   f );
         startActivity( i );
-        finish();*/
+        finish();
     }
 
 
@@ -167,24 +214,41 @@ public class Fototipo_visual_test extends AppCompatActivity {
                 _inStream = mmSocket.getInputStream();
                 byte[] buffer = new byte[1024];  // buffer (our data)
                 int bytesCount=0; // amount of read bytes
-
-                do {
+                String messageFromBluetooth= "";
+                ini_analysis_progress();
+                while (  true) {
                     try {
                         //reading data from input stream
                         bytesCount = _inStream.read(buffer);
                         if(buffer != null && bytesCount > 0)
                         {
-                            //Parse received bytes
-                            Log.i("Recibido", "datos");
-                        }
-                    } catch (IOException e) {
-                        //Error
-                    }
-                }while (  true);
+                            if(buffer[ bytesCount-1] == '*'){
+                                //INTERPRETAR la lectura actual
+                                String[] alldata= messageFromBluetooth.split(",");
+                                if( alldata.length >3 ){
+                                    String Fototipo= alldata[0];
+                                    String canal_R= alldata[1];String canal_G= alldata[2];String canal_B= alldata[3];
+                                    //mostrar datos leidos
+                                    update_analysis_progress( Fototipo, canal_R, canal_G, canal_B);
+                                    Log.i("Fototipo", Fototipo);
+                                    Log.i("rgb", canal_R+"-"+canal_G+"-"+canal_B);
+                                }
 
-            } catch (IOException e) {
-                //Error
-            }
+                                //RESET CADENA
+                                messageFromBluetooth= "";
+                            }else{
+                                if( buffer[ bytesCount-1] == 'X'){
+                                    remove_analysis_progress();
+                                    break;
+                                }else{  messageFromBluetooth+= new String( buffer, 0, bytesCount ); }
+                            }
+                        }else{ break;  }
+                    } catch (IOException e) {
+                        Log.e("Recibir datos,", e.toString());
+                    }
+                }
+
+            } catch (IOException e) {   Log.e("Err al rec fluj de ent ", e.toString());  }
         }
 
 
@@ -193,7 +257,7 @@ public class Fototipo_visual_test extends AppCompatActivity {
                 _outStream = mmSocket.getOutputStream();
                 _outStream.write(bytes);
             } catch (IOException e) {
-                //Error
+                Log.e("Enviar datos,", e.toString());
             }
         }
 
@@ -205,8 +269,10 @@ public class Fototipo_visual_test extends AppCompatActivity {
                 // Connect to the remote device through the socket. This call blocks
                 // until it succeeds or throws an exception.
                 mmSocket.connect();
-                enviarDatos( "Hola Ardu, Soy Andry".getBytes());
+                enviarDatos( "1".getBytes());
                 recibirDatos();
+                cancel();
+
             } catch (IOException connectException) {
                 // Unable to connect; close the socket and return.
                 try {

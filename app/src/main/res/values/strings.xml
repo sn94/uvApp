@@ -24,11 +24,15 @@
     <string name="Fototipo_photo_toast_text1">TU TONO DE PIEL ES</string>
     <string name="Fototipo_result_text1">Tu piel pertenece al grupo de Fototipo </string>
     <string name="Fototipo_result_button_text1">Caracteristicas</string>
-    <string name="Fototipo_result_button_text2">Guardar perfil</string>
+
     <string name="Fototipo_result_text2">Luego de guardar tu perfil, recibiras alertas cuando la intensidad del sol sea danina</string>
     <string name="Fototipo_result_text3">FPS min.</string>
     <string name="Fototipo_questions_button_text1">Evaluar</string>
-    <string name="Fototipo_visual_test_button_text1">Iniciar test de piel </string> 
+
+    <string name="Fototipo_visual_test_button_text1">Iniciar test de piel </string>
+    <string name="Fototipo_visual_test_text1">Leyendo color...</string>
+    <string name="Fototipo_visual_test_button_text2">Guardar perfil</string>
+
     <string name="Inicio_button_text1">Los indices de radiacion ultravioleta (IUV)</string>
     <string name="Inicio_button_text2">Grupos de fototipos</string>
     <string name="Inicio_button_text3">Factor de proteccion Solar (FPS)</string>

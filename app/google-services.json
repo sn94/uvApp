@@ -1,39 +1,37 @@
 {
   "project_info": {
-    "project_number": "157029129717",
-    "firebase_url": "https://alertas-uv.firebaseio.com",
-    "project_id": "alertas-uv",
-    "storage_bucket": "alertas-uv.appspot.com"
+    "project_number": "630835692632",
+    "firebase_url": "https://uvapp-246400.firebaseio.com",
+    "project_id": "uvapp-246400",
+    "storage_bucket": "uvapp-246400.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:157029129717:android:950cdc90c5dc3fb7",
+        "mobilesdk_app_id": "1:630835692632:android:950cdc90c5dc3fb7",
         "android_client_info": {
           "package_name": "com.example.sonia.uvapp"
         }
       },
       "oauth_client": [
         {
-          "client_id": "157029129717-n3710shd0rutcr7hpr814e17iu7be7r2.apps.googleusercontent.com",
+          "client_id": "630835692632-8hromb8e1bj9n2411aiq1u1qg4c7bghd.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCn4Dn-tDcGfWJ35n5-o1-GI42dAOitiBg"
+          "current_key": "AIzaSyDoeDmiGQrXNQu2etVHVxfhNYvtzbS1bWs"
         }
       ],
       "services": {
-        "analytics_service": {
-          "status": 1
-        },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
-        },
-        "ads_service": {
-          "status": 2
+          "other_platform_oauth_client": [
+            {
+              "client_id": "630835692632-8hromb8e1bj9n2411aiq1u1qg4c7bghd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }

@@ -1,5 +1,7 @@
 package com.example.sonia.uvapp.Fototipo;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -27,19 +29,39 @@ public class Fototipo_main extends AppCompatActivity {
 
 
 
+    boolean userInput(){
+        if( usernick.getText().toString().equals("") ){
+            new AlertDialog.Builder(this)
+                    .setTitle("Antes de seguir")
+                    .setMessage("Ingresa un nick por favor.")
+                    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            Log.d("MainActivity", "Sending atomic bombs to Jupiter");
+                        }
+                    })
+                    .show();
+            return false;
+        }  return true;
+    }
 
     public void test_visual( View v){
 
-        Intent intent = new Intent( getApplicationContext(), Fototipo_visual_test.class);
-        intent.putExtra("nick",  usernick.getText().toString());
-        startActivity(intent);
+        if( userInput())
+        {
+            Intent intent = new Intent( getApplicationContext(), Fototipo_visual_test.class);
+            intent.putExtra("nick",  usernick.getText().toString());
+            startActivity(intent);
 
+        }
     }
 
     public void test_fitzpatrick( View v){
-        Intent intent = new Intent( getApplicationContext(), Fototipo_questions.class);
-        intent.putExtra("nick",  usernick.getText().toString());
-        startActivity(intent);
+        if( userInput()){
+            Intent intent = new Intent( getApplicationContext(), Fototipo_questions.class);
+            intent.putExtra("nick",  usernick.getText().toString());
+            startActivity(intent);
+        }
     }
 
 

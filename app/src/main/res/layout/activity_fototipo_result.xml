@@ -57,6 +57,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="guardar_userdata"
-        android:text="@string/Fototipo_result_button_text2"/>
+        android:text="@string/Fototipo_visual_test_button_text2"/>
 
 </LinearLayout>

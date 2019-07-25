@@ -5,25 +5,22 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Fototipo.Fototipo_visual_test"
-
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:id="@+id/fvt_contenedor">
 
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/Fototipo_visual_test_button_text1"
-        android:onClick="iniciar_test"
+        android:onClick="start_prototype_by_bluetooth"
         />
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/fvt_counter"/>
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/Fototipo_result_button_text2"/>
+        android:onClick="show_result"
+        android:text="@string/Fototipo_visual_test_button_text2"/>
 
     <TextView
         android:layout_width="match_parent"

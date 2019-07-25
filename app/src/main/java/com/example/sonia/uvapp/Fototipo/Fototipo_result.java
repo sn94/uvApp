@@ -14,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.sonia.uvapp.Info.Info_fototipo_single;
+import com.example.sonia.uvapp.Inicio;
 import com.example.sonia.uvapp.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -74,7 +75,16 @@ public class Fototipo_result extends AppCompatActivity {
         edit.apply();
 
         Toast.makeText( getBaseContext(), "Perfil guardado!", Toast.LENGTH_SHORT).show();
+
+        //guardar el perfil en firestore
+
+        //abrir inicio con autenticacion
+       startActivity(  new Intent( getApplicationContext(), Inicio.class) );
+       finish();
     }
+
+
+
     void determ_fps(){
 
         String des= getResources().getStringArray( R.array.recommended_fps_iuv1 )[ Integer.parseInt( foto )];
