@@ -3,7 +3,8 @@
 
     <string name="button_ant">Anterior</string>
     <string name="button_sig">Siguiente</string>
-    <string name="button_go_home">Inicio</string>
+
+    <string name="button_say_ok">OK!</string>
 
 
     <string name="Hello_text1">A ciertas horas del dia el sol es intenso. Es importante que protegas tu piel, antes debes conocer tu fototipo</string>
@@ -16,9 +17,8 @@
     <string name="Fototipo_main_text2">OPC.2 Si quieres saber cual es tu fototipo con mayor precision responde el cuestionario</string>
 
     <string name="Fototipo_main_button_text2">Hacer el test</string>
-    <string name="Fototipo_help_text1">De que parte del brazo hacer la foto?</string>
-    <string name="Fototipo_help_text2">Trata de tomar la foto, de modo que quede algo así</string>
-    <string name="Fototipo_device_button_text1">Activar dispositivo</string>
+    <string name="Fototipo_help_text1">La piel..de que parte?</string>
+    <string name="Fototipo_device_button_text1">Usar dispositivo</string>
     <string name="Fototipo_photo_button_text2">Evaluar</string>
     <string name="Fototipo_photo_button_text3">Abrir foto</string>
     <string name="Fototipo_photo_toast_text1">TU TONO DE PIEL ES</string>
@@ -29,7 +29,6 @@
     <string name="Fototipo_result_text3">FPS min.</string>
     <string name="Fototipo_questions_button_text1">Evaluar</string>
 
-    <string name="Fototipo_visual_test_button_text1">Iniciar test de piel </string>
     <string name="Fototipo_visual_test_text1">Leyendo color...</string>
     <string name="Fototipo_visual_test_button_text2">Guardar perfil</string>
 

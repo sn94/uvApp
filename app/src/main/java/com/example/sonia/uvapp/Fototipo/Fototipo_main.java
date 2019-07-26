@@ -19,12 +19,13 @@ import com.example.sonia.uvapp.R;
 public class Fototipo_main extends AppCompatActivity {
 
     EditText usernick;
-
+    Button b_help;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fototipo_main);
         usernick= (EditText) findViewById( R.id.fm_nick);
+        b_help= (Button) findViewById( R.id.fm_help_visual_test);
     }
 
 
@@ -56,6 +57,9 @@ public class Fototipo_main extends AppCompatActivity {
         }
     }
 
+
+
+
     public void test_fitzpatrick( View v){
         if( userInput()){
             Intent intent = new Intent( getApplicationContext(), Fototipo_questions.class);
@@ -66,5 +70,9 @@ public class Fototipo_main extends AppCompatActivity {
 
 
 
+
+    public void show_help(View v){
+        startActivity( new Intent( getBaseContext(), Fototipo_help.class));
+    }
 
 }

@@ -22,14 +22,6 @@
         android:layout_height="wrap_content"
         android:minHeight="20px"
         />
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/Fototipo_help_text2"/>
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:minHeight="20px"/>
 </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

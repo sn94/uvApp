@@ -14,7 +14,7 @@ public class Info_fototipo_single extends AppCompatActivity {
 
 
     TextView tx_title, tx_features, tx_sun_effects, tx_melanin;
-    Button b_home;
+    Button b_backward;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,12 +26,12 @@ public class Info_fototipo_single extends AppCompatActivity {
         tx_features= (TextView) findViewById( R.id.ifs_features);
         tx_sun_effects= (TextView) findViewById( R.id.ifs_sun_effects);
         tx_melanin= (TextView) findViewById( R.id.ifs_melanin);
-        b_home= (Button) findViewById( R.id.ifs_home_button);
+        b_backward = (Button) findViewById( R.id.ifs_home_button);
 
-        b_home.setOnClickListener(new View.OnClickListener() {
+        b_backward.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity( new Intent( getApplicationContext(), Inicio.class));
+                finish();
             }
         });
 

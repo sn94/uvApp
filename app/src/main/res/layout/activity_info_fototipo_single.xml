@@ -34,5 +34,5 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/ifs_home_button"
-        android:text="@string/button_go_home"/>
+        android:text="@string/button_say_ok"/>
 </LinearLayout>

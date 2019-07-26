@@ -9,17 +9,16 @@
     android:id="@+id/fvt_contenedor">
 
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/Fototipo_visual_test_button_text1"
-        android:onClick="start_prototype_by_bluetooth"
-        />
+
+    <include layout="@layout/fototipo_visual_test_onprogress" />
+
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="show_result"
+        android:enabled="false"
+        android:id="@+id/fvt_guardar"
         android:text="@string/Fototipo_visual_test_button_text2"/>
 
     <TextView
