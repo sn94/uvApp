@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle" >
     <corners
         android:radius="28dp"
@@ -6,10 +7,11 @@
     <gradient
         android:angle="100"
         android:centerX="35%"
-        android:centerColor="#ff7c43bd"
-        android:startColor="#ff12005e"
-        android:endColor="#ff12005e"
-        android:type="linear"
+        android:centerColor="@color/primaryLightColor"
+        android:startColor="@color/primaryColor"
+        android:endColor="@color/primaryDarkColor"
+        android:type="radial"
+        android:gradientRadius="50dp"
         />
     <padding
         android:left="0dp"
@@ -21,4 +23,6 @@
         android:width="1dp"
         android:color="#878787"
         />
+
+
 </shape>

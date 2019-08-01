@@ -73,12 +73,23 @@ public class Fototipo_result extends AppCompatActivity {
                 });
     }
 
+    private void guardar_userdata_locally(){
+        SharedPreferences preferences = getSharedPreferences("uvapp", Context.MODE_PRIVATE);
+        SharedPreferences.Editor edit = preferences.edit();
+        edit.putString( "fototipo", foto);
+        edit.putString("nick",  nick_);
+        edit.apply();
+    }
+
     public void guardar_userdata(View v){
         /**PETICION CON RETROFIT***************/
 
         webapi webapi=  new Cliente().buildService(com.example.sonia.uvapp.retrofits.webapi.class );
-        Log.i("token",  token );
-        Data datos= new Data();  datos.setNick( nick_ );  datos.setToken(  token );
+        /** REQUEST BODY */
+        Data datos= new Data();
+        datos.setNick( nick_ );
+        datos.setToken(  token );
+        /*** REQUEST **/
         Call<Response> respuesta=  webapi.signup( datos );
         //guardar el perfil en firestore
         respuesta.enqueue( new Callback<Response>(){
@@ -86,31 +97,20 @@ public class Fototipo_result extends AppCompatActivity {
             @Override
             public void onResponse(Call<Response> call, retrofit2.Response<Response> response) {
                 Response body = response.body();
-                Log.i( "status respuesta", body.getMsg());
+                Toast.makeText( getBaseContext(), body.getMsg(), Toast.LENGTH_SHORT).show();
+                guardar_userdata_locally();// datos de usuario en preferencias compartidas
+                //abrir inicio con autenticacion
+                startActivity(  new Intent( getApplicationContext(), Inicio.class) );
+                finish();
             }
 
             @Override
             public void onFailure(Call<Response> call, Throwable t) {
-
+                Toast.makeText( getBaseContext(), "HUBO UN ERROR DURANTE LA TRANSACCION", Toast.LENGTH_SHORT).show();
             }
         }
         );
         /**************************************/
-
-
-        /*
-        SharedPreferences preferences = getSharedPreferences("uvapp", Context.MODE_PRIVATE);
-        SharedPreferences.Editor edit = preferences.edit();
-        edit.putString( "fototipo", foto);
-        edit.putString("nick",  nick_);
-        edit.putString("token", obtener_token());
-        edit.apply();*/
-
-        Toast.makeText( getBaseContext(), "Perfil guardado!", Toast.LENGTH_SHORT).show();
-
-        //abrir inicio con autenticacion
-       startActivity(  new Intent( getApplicationContext(), Inicio.class) );
-       finish();
     }
 
 
@@ -118,8 +118,9 @@ public class Fototipo_result extends AppCompatActivity {
     void determ_fps(){
 
         String des= getResources().getStringArray( R.array.recommended_fps_iuv1 )[ Integer.parseInt( foto )];
-        TextView txt= (TextView)findViewById( R.id.fr_fps); txt.setText( des);
-
+        TextView txt= (TextView)findViewById( R.id.fr_fps);
+        txt.setText( des);
+        //FPS MIN       FPS MAX
 
     }
 
@@ -127,7 +128,6 @@ public void ver_caracteristicas_fototipo(  View v){
 
     Intent intent = new Intent(getApplicationContext(), Info_fototipo_single.class);
     intent.putExtra("indice", Integer.parseInt( foto ) - 1 );
-
     startActivity( intent );
 }
 

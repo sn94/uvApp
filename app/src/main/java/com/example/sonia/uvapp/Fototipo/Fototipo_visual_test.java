@@ -54,7 +54,12 @@ public class Fototipo_visual_test extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        unregisterReceiver( receiver );
+        try{
+            unregisterReceiver( receiver );
+        }catch (IllegalArgumentException ex){
+            Log.e("receiver error", ex.getMessage());
+        }
+
         //desactivar bluetooth
         bluetoothAdapter.disable();
     }
@@ -64,8 +69,15 @@ public class Fototipo_visual_test extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if( requestCode == REQUEST_ENABLE_BT  &&  resultCode == RESULT_OK  ){
-            Log.i("Bluetooth","enabled");
-            discoverDevices();
+
+            if(  resultCode == RESULT_OK){
+                Log.i("Bluetooth","enabled");
+                discoverDevices();
+            }else{
+                finish();
+            }
+        } else{
+            finish();
         }
     }
 
