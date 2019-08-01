@@ -2,18 +2,22 @@ package com.example.sonia.uvapp.retrofits;
 
 
 public class Data {
-    public Data(String imagebase64) {//Aqui deberia ir la foto
-        this.foto  = imagebase64;
+
+    String  nick="", token="";
+
+    public String getNick() {
+        return nick;
     }
 
-    private String foto;
-
-
-    public String getFoto() {
-        return foto;
+    public void setNick(String nick) {
+        this.nick = nick;
     }
 
-    public void setFoto(String foto) {
-        this.foto = foto;
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
     }
 }

@@ -1,17 +1,17 @@
 package com.example.sonia.uvapp.retrofits;
 
 
-public class UvappResponse {
+public class Response {
 
-    private String phototype;
+    private String msg;
     private int estado;
 
-    public String getPhototype() {
-        return phototype;
+    public String getMsg() {
+        return msg;
     }
 
-    public void setPhototype(String phototype) {
-        this.phototype = phototype;
+    public void setMsg(String msg) {
+        this.msg = msg;
     }
 
     public int getEstado() {

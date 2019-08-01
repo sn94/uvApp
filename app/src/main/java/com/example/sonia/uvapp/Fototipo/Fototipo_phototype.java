@@ -10,23 +10,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import com.example.sonia.uvapp.Helpers;
 import com.example.sonia.uvapp.R;
-import com.example.sonia.uvapp.retrofits.Cliente;
-import com.example.sonia.uvapp.retrofits.UvappInterface;
-import com.example.sonia.uvapp.retrofits.UvappResponse;
+import com.example.sonia.uvapp.retrofits.webapi;
 
 import java.io.File;
 import java.io.IOException;
-
-import okhttp3.MediaType;
-import okhttp3.MultipartBody;
-import okhttp3.RequestBody;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class Fototipo_phototype extends AppCompatActivity {
 
@@ -46,7 +36,7 @@ public class Fototipo_phototype extends AppCompatActivity {
     static final int REQUEST_TAKE_PHOTO = 2, READ_REQUEST_CODE= 3;
 
 
-    UvappInterface uvappInterface=null;
+    webapi uvappInterface=null;
 
 
     @Override
