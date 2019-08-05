@@ -35,6 +35,17 @@ public class Info_fototipo extends AppCompatActivity {
 
     }
 
+    int imagen_fototipo( int index){
+        int ar= 0;
+        switch (index){
+            case 0: ar= R.drawable.fototipo1;break;
+            case 1: ar= R.drawable.fototipo2;break;
+            case 2: ar= R.drawable.fototipo3;break;
+            case 3: ar= R.drawable.fototipo4;break;
+            case 4: ar= R.drawable.fototipo5;break;
+            case 5: ar= R.drawable.fototipo6;break;
+        }  return  ar;
+    }
     void update_data(){
         if(CurrentIndexFragment == 0) {
             b1.setVisibility( View.INVISIBLE);
@@ -55,6 +66,7 @@ public class Info_fototipo extends AppCompatActivity {
         t1.setText(  getResources().getStringArray( R.array.fototipos_features) [ CurrentIndexFragment]);
         t2.setText(  getResources().getStringArray( R.array.fototipos_sun_effects) [CurrentIndexFragment]);
         t3.setText(  getResources().getStringArray( R.array.fototipos_melanin) [CurrentIndexFragment]);
+        im1.setImageResource(  imagen_fototipo(  CurrentIndexFragment  ));
 
     }
 

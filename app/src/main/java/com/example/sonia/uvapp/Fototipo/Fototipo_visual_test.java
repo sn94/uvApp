@@ -18,13 +18,20 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.sonia.uvapp.R;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 
 public class Fototipo_visual_test extends AppCompatActivity {
@@ -33,11 +40,15 @@ public class Fototipo_visual_test extends AppCompatActivity {
 
 
     String nick_="";
-
     TextView progress_test_label, progress_test_fototipo,progress_test_rgb;
-    Button progress_test_skin, fvt_guardar;
-
+    RelativeLayout progress_test_skin;
+    Button fvt_guardar;
     String FototipoValue="";
+
+    ArrayList<String> fototipos_leidos= new ArrayList<String>();
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -92,7 +103,7 @@ public class Fototipo_visual_test extends AppCompatActivity {
         //rgb
         progress_test_rgb = (TextView)  findViewById(R.id.fvt_testing_rgb);
         //color
-        progress_test_skin = (Button)  findViewById(R.id.fvt_testing_skin);
+        progress_test_skin = (RelativeLayout)  findViewById(R.id.fvt_testing_skin);
 
     }
 
@@ -182,7 +193,10 @@ public class Fototipo_visual_test extends AppCompatActivity {
 
 
 
+void cerrar(){
 
+    finish();
+}
 
 
 
@@ -222,44 +236,57 @@ public class Fototipo_visual_test extends AppCompatActivity {
             try {
                 _inStream = mmSocket.getInputStream();
                 byte[] buffer = new byte[1024];  // buffer (our data)
-                int bytesCount=0; // amount of read bytes
-                String messageFromBluetooth= "";
-                while (  true) {
+                int bytesCount = 0; // amount of read bytes
+                String messageFromBluetooth = "";
+                while (true) {
                     try {
                         //reading data from input stream
                         bytesCount = _inStream.read(buffer);
-                        if(buffer != null && bytesCount > 0)
-                        {
-                            if(buffer[ bytesCount-1] == '*'){
+                        if (buffer != null && bytesCount > 0) {
+                            if (buffer[bytesCount - 1] == '*') {
                                 //INTERPRETAR la lectura actual
-                                String[] alldata= messageFromBluetooth.split(",");
-                                if( alldata.length >3 ){
-                                    String Fototipo= alldata[0];
-                                    String canal_R= alldata[1];String canal_G= alldata[2];String canal_B= alldata[3];
-                                    fototipoDetected= Fototipo;
-                                    r= canal_R; g= canal_G;  b=  canal_B;
+                                String[] alldata = messageFromBluetooth.split(",");
+                                if (alldata.length > 3) {
+                                    String Fototipo = alldata[0];
+                                    String canal_R = alldata[1];
+                                    String canal_G = alldata[2];
+                                    String canal_B = alldata[3];
+                                    fototipoDetected = Fototipo;
+                                    r = canal_R;
+                                    g = canal_G;
+                                    b = canal_B;
                                     //mostrar datos leidos
                                     Log.i("Fototipo", Fototipo);
-                                    Log.i("rgb", canal_R+"-"+canal_G+"-"+canal_B);
+                                    Log.i("rgb", canal_R + "-" + canal_G + "-" + canal_B);
                                     publishProgress();
                                 }
 
                                 //RESET CADENA
-                                messageFromBluetooth= "";
-                            }else{
-                                if( buffer[ bytesCount-1] == 'X'){
+                                messageFromBluetooth = "";
+                            } else {
+                                if (buffer[bytesCount - 1] == 'X') {
                                     //remove_analysis_progress();
                                     break;
-                                }else{  messageFromBluetooth+= new String( buffer, 0, bytesCount ); }
+                                } else {
+                                    messageFromBluetooth += new String(buffer, 0, bytesCount);
+                                }
                             }
-                        }else{ break;  }
+                        } else {
+                            break;
+                        }
                     } catch (IOException e) {
                         Log.e("Recibir datos,", e.toString());
+                        Toast.makeText(getBaseContext(), "EL DISPOSITIVO DE FOTOTIPOS NO ESTA CONECTADO", Toast.LENGTH_LONG).show();
+                        cerrar();
                     }
-                }
+                }//end while
+                }catch (IOException e) {
+                        Log.e("Err al rec fluj de ent ", e.toString());
+                Toast.makeText(getBaseContext(), "EL DISPOSITIVO DE FOTOTIPOS PUEDE NO ESTAR CONECTADO", Toast.LENGTH_LONG).show();
+                cerrar();
+                    }
+                }//END FUNCTION
 
-            } catch (IOException e) {   Log.e("Err al rec fluj de ent ", e.toString());  }
-        }
 
 
         void enviarDatos( byte[]  bytes){
@@ -306,9 +333,32 @@ public class Fototipo_visual_test extends AppCompatActivity {
         protected void onCancelled() {
             try {
                 mmSocket.close();
-                progress_test_label.setText("");
-                FototipoValue= fototipoDetected;
+                progress_test_label.setText("Lectura terminada. Su ultima lectura es:");
+                //Determinar el fototipo mas frecuentemente leido
+                HashMap<String, Integer> frecuencia= new HashMap<String, Integer>() ;
+                int  most_frequent= 0;
+                String most_freq_foto= "1";
+                for(int i=0; i < fototipos_leidos.size(); i++){
+                    String theKey= fototipos_leidos.get(i);
+                    if( frecuencia.containsKey( theKey ) ){
+                        Integer integer = frecuencia.get(theKey) + 1;
+                        if(  most_frequent <=  integer ){
+                            most_frequent= integer; most_freq_foto= theKey;
+                        }
+                        frecuencia.remove( theKey);
+                        frecuencia.put( theKey, integer );
+
+                    }else{
+                        most_frequent=  1; most_freq_foto= theKey;
+                        frecuencia.put(  theKey, 1);//primera ocurrencia
+                    }
+
+
+                }
+
+                FototipoValue= most_freq_foto; //fototipoDetected
                 fvt_guardar.setEnabled( true);
+
             } catch (IOException e) {
                 Log.e("socket", "Could not close the client socket", e);
             }
@@ -324,7 +374,8 @@ public class Fototipo_visual_test extends AppCompatActivity {
             try{
                 rojo= Integer.parseInt( r);  verde=Integer.parseInt(g);  azul= Integer.parseInt(b);
                 progress_test_skin.setBackgroundColor( Color.rgb(rojo, verde , azul )  );
-            }catch (NumberFormatException ex){ }
+                fototipos_leidos.add( fototipoDetected);
+            }catch (NumberFormatException ex){ Log.e("FORMATO NUMERO ERR", "ERROR AL CONVERTIR A INTEGER VALORES RECIBIDOS") ; }
         }
 
         @Override

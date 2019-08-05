@@ -31,6 +31,7 @@
 
     <string name="Fototipo_visual_test_text1">Leyendo color...</string>
     <string name="Fototipo_visual_test_button_text2">Guardar perfil</string>
+    <string name="Fototipo_visual_test_button_text3">Parar lectura</string>
 
     <string name="Inicio_button_text1">Los indices de radiacion ultravioleta (IUV)</string>
     <string name="Inicio_button_text2">Grupos de fototipos</string>

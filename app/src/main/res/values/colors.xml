@@ -2,6 +2,7 @@
 <resources>
 
 
+    <color name="black">#000</color>
     <color name="primaryColor">#4a148c</color>
     <color name="primaryLightColor">#7c43bd</color>
     <color name="primaryDarkColor">#12005e</color>
@@ -15,7 +16,7 @@
     <color name="iuv_extremo">#aa00ff</color>
 
 
-    <color name="button_normal"> #7B1FA2 </color>
+    <color name="button_normal">#7B1FA2</color>
     <color name="button_pressed">#E1BEE7</color>
     <color name="button_focused"> #7C4DFF</color>
 
