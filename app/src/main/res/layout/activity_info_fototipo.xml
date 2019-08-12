@@ -7,6 +7,15 @@
     android:layout_height="match_parent"
     android:id="@+id/if_container">
 
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -16,39 +25,26 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        style="@style/title_style"
         android:id="@+id/if_text0"/>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        style="@style/text_style"
         android:id="@+id/if_text1"/>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        style="@style/text_style"
         android:id="@+id/if_text2"/>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        style="@style/text_style"
         android:id="@+id/if_text3"/>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:id="@+id/if_panel">
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/if_ant"
-            android:text="@string/button_ant"
-            android:visibility="invisible"
-            />
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/if_sig"
-            android:text="@string/button_sig"/>
-    </LinearLayout>
+</LinearLayout>
 
 
+    </ScrollView>
 </LinearLayout>

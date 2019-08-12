@@ -19,18 +19,12 @@ public class Info_fototipo extends AppCompatActivity {
 
     int CurrentIndexFragment= 0;
 
-    Button b1 , b2 =  null;
 
-
+    //https://developer.android.com/training/animation/screen-slide
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_info_fototipo);
-
-
-        b1 = (Button) findViewById(R.id.if_ant);
-        b2 = (Button) findViewById(R.id.if_sig);
-        buttons();
         update_data();
 
     }
@@ -47,14 +41,6 @@ public class Info_fototipo extends AppCompatActivity {
         }  return  ar;
     }
     void update_data(){
-        if(CurrentIndexFragment == 0) {
-            b1.setVisibility( View.INVISIBLE);
-            b2.setVisibility( View.VISIBLE);
-        } else{
-            b1.setVisibility( View.VISIBLE);
-            if( CurrentIndexFragment == 5) b2.setVisibility( View.INVISIBLE);
-            else b2.setVisibility( View.VISIBLE);
-        }
 
         TextView t0 = (TextView) findViewById(R.id.if_text0);
         TextView t1 = (TextView) findViewById(R.id.if_text1);
@@ -90,27 +76,4 @@ public class Info_fototipo extends AppCompatActivity {
         fragmentManager.popBackStack();
     }
 
-    void buttons(){
-        b1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if( CurrentIndexFragment >= 1){
-                    CurrentIndexFragment= CurrentIndexFragment-1;
-                    //actualizar fragmento
-                    update_data();
-                }
-            }
-        });
-
-        b2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(  getResources().getStringArray( R.array.fototipos_features).length > CurrentIndexFragment ){
-                    CurrentIndexFragment= CurrentIndexFragment+1;
-                    //actualizar fragmento
-                    update_data();
-              }
-            }
-        });
-    }
 }

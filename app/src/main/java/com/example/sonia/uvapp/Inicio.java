@@ -3,8 +3,11 @@ package com.example.sonia.uvapp;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Point;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.Display;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -13,6 +16,7 @@ import com.example.sonia.uvapp.Fototipo.Fototipo_main;
 import com.example.sonia.uvapp.Info.Info_fototipo;
 import com.example.sonia.uvapp.Info.Info_fps;
 import com.example.sonia.uvapp.Info.Info_iuv;
+import com.example.sonia.uvapp.slideshow.ScreenSlidePagerActivity;
 
 public class Inicio extends AppCompatActivity {
 
@@ -29,6 +33,14 @@ public class Inicio extends AppCompatActivity {
         }
 
 
+        Display display = getWindowManager().getDefaultDisplay();
+        // Tamaño en píxeles
+        Point size = new Point();
+        display.getSize(size);
+        int width = size.x;
+        int height = size.y;
+        Log.i("ancho ", "Ancho             = " + width);
+        Log.i( "alto", "Alto              = " + height);
 
     }
 
@@ -72,7 +84,9 @@ public class Inicio extends AppCompatActivity {
     }
 
     public void info_fototipos(View v){
-        Intent intent = new Intent( this, Info_fototipo.class);
+       // Intent intent = new Intent( this, Info_fototipo.class);
+        //startActivity(intent);
+        Intent intent = new Intent( this, ScreenSlidePagerActivity.class);
         startActivity(intent);
     }
 
