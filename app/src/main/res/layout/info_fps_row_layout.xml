@@ -12,15 +12,18 @@
         android:layout_height="wrap_content"
         android:minHeight="50px"
         android:minWidth="100px"
+        style="@style/title_style"
         android:id="@+id/ifpsrl_name"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        style="@style/text_style"
         android:id="@+id/ifpsrl_min"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        style="@style/text_style"
         android:id="@+id/ifpsrl_max"/>
 
 

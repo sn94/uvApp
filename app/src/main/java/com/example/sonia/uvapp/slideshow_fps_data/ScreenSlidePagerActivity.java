@@ -1,7 +1,6 @@
-package com.example.sonia.uvapp.slideshow;
+package com.example.sonia.uvapp.slideshow_fps_data;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -9,10 +8,6 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.util.Log;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
 
 import com.example.sonia.uvapp.R;
 
@@ -20,7 +15,7 @@ public class ScreenSlidePagerActivity extends FragmentActivity {
     /**
      * The number of pages (wizard steps) to show in this demo.
      */
-    private static final int NUM_PAGES = 6;
+    private static final int NUM_PAGES = 11;
 
     /**
      * The pager widget, which handles animation and allows swiping horizontally to access previous
@@ -36,13 +31,19 @@ public class ScreenSlidePagerActivity extends FragmentActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_screen_slide);
+        setContentView(R.layout.activity_screen_slide_fps);
 
         // Instantiate a ViewPager and a PagerAdapter.
-        mPager = (ViewPager) findViewById(R.id.pager);
+        mPager = (ViewPager) findViewById(R.id.pager2);
         pagerAdapter = new ScreenSlidePagerAdapter(getSupportFragmentManager());
         mPager.setAdapter(pagerAdapter);
+
+        SlidingTabLayout mSlidingTabLayout = (SlidingTabLayout) findViewById(R.id.sliding_tabs2);
+        mSlidingTabLayout.setViewPager(mPager);
     }
+
+
+
 
     @Override
     public void onBackPressed() {
@@ -67,35 +68,16 @@ public class ScreenSlidePagerActivity extends FragmentActivity {
 
 
 
-        String getTitle(int indice ){  return getResources().getStringArray( R.array.fototipos_title) [ indice] ; }
-
-        String getDescription(int indice){ return  getResources().getStringArray( R.array.fototipos_features) [ indice]; }
-
-        String getSunEffects(int indice){ return getResources().getStringArray( R.array.fototipos_sun_effects) [indice] ; }
-
-        String getMelaninStatus( int indice){ return getResources().getStringArray( R.array.fototipos_melanin) [indice]; }
-
-        int imagen_fototipo( int index){
-            int ar= 0;
-            switch (index){
-                case 0: ar= R.drawable.fototipo1;break;
-                case 1: ar= R.drawable.fototipo2;break;
-                case 2: ar= R.drawable.fototipo3;break;
-                case 3: ar= R.drawable.fototipo4;break;
-                case 4: ar= R.drawable.fototipo5;break;
-                case 5: ar= R.drawable.fototipo6;break;
-            }  return  ar;
+        @Nullable
+        @Override
+        public CharSequence getPageTitle(int position) {
+            return String.valueOf( position+1);
         }
-
 
         @Override
         public Fragment getItem(int position) {
             Bundle arguments = new Bundle();
-            arguments.putInt( "fototipo", imagen_fototipo( position ));
-            arguments.putString("title", getTitle( position));
-            arguments.putString("text1", getDescription( position));
-            arguments.putString("text2", getSunEffects( position));
-            arguments.putString("text3",getMelaninStatus( position));
+            arguments.putInt( "pos",   position );
             return ScreenSlidePageFragment.obtener_fragmento(  arguments);
         }
 

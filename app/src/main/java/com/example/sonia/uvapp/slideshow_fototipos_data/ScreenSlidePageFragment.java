@@ -1,10 +1,8 @@
-package com.example.sonia.uvapp.slideshow;
+package com.example.sonia.uvapp.slideshow_fototipos_data;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,8 +10,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.sonia.uvapp.R;
-
-import org.w3c.dom.Text;
 
 public class ScreenSlidePageFragment extends Fragment {
 
@@ -27,6 +23,8 @@ public class ScreenSlidePageFragment extends Fragment {
 
     //el constructor es necesario
     public ScreenSlidePageFragment(){}
+
+
 
 
     @Override
@@ -56,6 +54,10 @@ public class ScreenSlidePageFragment extends Fragment {
             text3.setText( arguments.getString("text3"));
             img.setImageResource(  arguments.getInt( "fototipo"));
         }
+
+
+
+
         return rootView;
     }
 

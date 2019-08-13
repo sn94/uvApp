@@ -15,7 +15,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".slideshow.ScreenSlidePagerActivity"/>
+        <activity android:name=".slideshow_fototipos_data.ScreenSlidePagerActivity"/>
+        <activity android:name=".slideshow_fps_data.ScreenSlidePagerActivity"/>
         <activity android:name=".Fototipo.Fototipo_visual_test"></activity>
         <activity android:name=".Info.Info_fototipo_single" />
         <activity android:name=".Info.Info_fps" />

@@ -13,10 +13,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.sonia.uvapp.Fototipo.Fototipo_main;
-import com.example.sonia.uvapp.Info.Info_fototipo;
 import com.example.sonia.uvapp.Info.Info_fps;
 import com.example.sonia.uvapp.Info.Info_iuv;
-import com.example.sonia.uvapp.slideshow.ScreenSlidePagerActivity;
+import com.example.sonia.uvapp.slideshow_fototipos_data.ScreenSlidePagerActivity;
 
 public class Inicio extends AppCompatActivity {
 
@@ -91,8 +90,10 @@ public class Inicio extends AppCompatActivity {
     }
 
     public void info_fps( View v){
-        Intent intent = new Intent( this, Info_fps.class);
+        Intent intent = new Intent( this, com.example.sonia.uvapp.slideshow_fps_data.ScreenSlidePagerActivity.class);
         startActivity(intent);
+        //Intent intent = new Intent( this, Info_fps.class);
+        //startActivity(intent);
     }
 
 

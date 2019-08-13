@@ -43,7 +43,7 @@ public class info_fps_adapter extends ArrayAdapter {
         if( split.length == 1)
         t_text3.setText( fps_list.get( position ).toString().split("-")[0]);
         else{
-            t_text2.setText( fps_list.get( position ).toString().split("-")[0]);
+            t_text2.setText(  fps_list.get( position ).toString().split("-")[0]  +", ");
             t_text3.setText( fps_list.get( position ).toString().split("-")[1]);
         }
 
