@@ -34,7 +34,14 @@
             android:textSize="30dp"
             android:id="@+id/inicio_user_phototype" />
 
+
         <include layout="@layout/inicio_opciones" />
+
+
+
+
+
+
 
 
 

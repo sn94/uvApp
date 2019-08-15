@@ -3,17 +3,16 @@ package com.example.sonia.uvapp;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Point;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.Display;
+import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.sonia.uvapp.Fototipo.Fototipo_main;
-import com.example.sonia.uvapp.Info.Info_fps;
 import com.example.sonia.uvapp.Info.Info_iuv;
 import com.example.sonia.uvapp.slideshow_fototipos_data.ScreenSlidePagerActivity;
 
@@ -29,17 +28,22 @@ public class Inicio extends AppCompatActivity {
             show_user_data();
         }else{
             setContentView(R.layout.activity_inicio_sin_auth);
+            Toolbar toolbar= (Toolbar) findViewById( R.id.my_toolbar);
+            setSupportActionBar(toolbar);
+
         }
 
+        /*NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
+        NavigationView navView = findViewById(R.id.nav_view);
+        NavigationUI.setupWithNavController(navView, navController);
 
-        Display display = getWindowManager().getDefaultDisplay();
-        // Tamaño en píxeles
-        Point size = new Point();
-        display.getSize(size);
-        int width = size.x;
-        int height = size.y;
-        Log.i("ancho ", "Ancho             = " + width);
-        Log.i( "alto", "Alto              = " + height);
+        DrawerLayout drawerLayout= (DrawerLayout)findViewById(R.id.drawer_layout);
+        AppBarConfiguration appBarConfiguration =
+                new AppBarConfiguration.Builder(navController.getGraph())
+                        .setDrawerLayout(drawerLayout)
+                        .build();
+
+*/
 
     }
 
@@ -100,9 +104,23 @@ public class Inicio extends AppCompatActivity {
 
 
 
+    void configurar_conexion(){
+
+    }
 
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate( R.menu.my_appbar_inicial, menu) ;
+        return true;
+    }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
 
-
+        switch ( item.getItemId()){
+            case R.id.menu_config:  configurar_conexion(); break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 }
