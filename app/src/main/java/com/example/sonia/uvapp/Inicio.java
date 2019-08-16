@@ -25,6 +25,8 @@ public class Inicio extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         if( existe_userdata()){
             setContentView(R.layout.activity_inicio_con_auth);
+            Toolbar toolbar= (Toolbar) findViewById( R.id.my_toolbar2);
+            setSupportActionBar(toolbar);
             show_user_data();
         }else{
             setContentView(R.layout.activity_inicio_sin_auth);

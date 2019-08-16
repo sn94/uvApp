@@ -78,7 +78,7 @@ public class Fototipo_result extends AppCompatActivity {
         SharedPreferences.Editor edit = preferences.edit();
         edit.putString( "fototipo", foto);
         edit.putString("nick",  nick_);
-        edit.apply();
+        edit.commit();
     }
 
     public void guardar_userdata(View v){
@@ -97,12 +97,18 @@ public class Fototipo_result extends AppCompatActivity {
             @Override
             public void onResponse(Call<Response> call, retrofit2.Response<Response> response) {
                 Response body = response.body();
-                Toast.makeText( getBaseContext(), body.getMsg(), Toast.LENGTH_SHORT).show();
-                guardar_userdata_locally();// datos de usuario en preferencias compartidas
-                //abrir inicio con autenticacion
-                startActivity(  new Intent( getApplicationContext(), Inicio.class) );
-                finish();
+                if(body != null ){
+                    Toast.makeText( getBaseContext(), body.getMsg(), Toast.LENGTH_SHORT).show();
+                    guardar_userdata_locally();// datos de usuario en preferencias compartidas
+                    //abrir inicio con autenticacion
+                    startActivity(  new Intent( getApplicationContext(), Inicio.class) );
+                    finish();
+                }else{
+                    Toast.makeText( getBaseContext(), "No hay respuesta del servidor", Toast.LENGTH_SHORT).show();
+                }
+
             }
+
 
             @Override
             public void onFailure(Call<Response> call, Throwable t) {
