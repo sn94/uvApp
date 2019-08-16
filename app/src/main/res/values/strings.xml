@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">uvApp</string>
+    <string name="app_name">UVAPP</string>
 
     <string name="button_ant">Anterior</string>
     <string name="button_sig">Siguiente</string>
@@ -36,7 +36,7 @@
     <string name="Inicio_button_text1">Los indices de radiacion ultravioleta (IUV)</string>
     <string name="Inicio_button_text2">Grupos de fototipos</string>
     <string name="Inicio_button_text3">Factor de proteccion Solar (FPS)</string>
-    <string name="Inicio_button_text4">Nuevo perfil</string>
+    <string name="Inicio_button_text4">Crear perfil</string>
     <string name="Inicio_button_text5">Salir</string>
 
 

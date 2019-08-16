@@ -105,13 +105,19 @@ public class Inicio extends AppCompatActivity {
 
 
     void configurar_conexion(){
-
+        startActivity( new Intent( this, config_conexion.class));
     }
 
+    void go_home(){
+        startActivity( new Intent( this, Inicio.class));
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate( R.menu.my_appbar_inicial, menu) ;
+        if( existe_userdata())
+            getMenuInflater().inflate( R.menu.my_appbar, menu) ;
+        else
+            getMenuInflater().inflate( R.menu.my_appbar_inicial, menu) ;
         return true;
     }
 
@@ -120,6 +126,7 @@ public class Inicio extends AppCompatActivity {
 
         switch ( item.getItemId()){
             case R.id.menu_config:  configurar_conexion(); break;
+            case R.id.menu_home:  go_home();break;
         }
         return super.onOptionsItemSelected(item);
     }
