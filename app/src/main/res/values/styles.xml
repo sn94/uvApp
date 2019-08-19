@@ -2,11 +2,18 @@
 
 
 
-
+<!--
     <style name="boton" parent="Widget.AppCompat.Button">
         <item name="android:background">@drawable/botones_selector</item>
         <item name="android:textColor">@color/primaryTextColor</item>
+    </style>-->
+
+
+    <style name="boton" parent="Widget.AppCompat.Button">
+        <item name="android:background">@color/primaryDarkColor</item>
+        <item name="android:textColor">@color/primaryTextColor</item>
     </style>
+
 
     <style name="edittexto" parent="Widget.AppCompat.EditText">
         <item name="android:radius">15dp</item>
@@ -15,8 +22,15 @@
         <item name="android:fontFamily"> @font/general</item>
         <item name="android:background">#ffeeee</item>
         <item name="android:padding">10dp</item>
+        <item name="android:layout_marginLeft">5dp</item>
+        <item name="android:layout_marginRight">5dp</item>
     </style>
 
+    <style name="radiobutton" parent="Widget.AppCompat.CompoundButton.RadioButton">
+        <item name="android:fontFamily"> @font/dkbluesheep</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">18sp</item>
+    </style>
 
 
     <style name="fototipo_label_result">
@@ -30,20 +44,27 @@
         <item name="android:textSize">100sp</item>
     </style>
 
-
     <style name="title_style">
         <item name="android:textAlignment">center</item>
-        <item name="android:shadowColor"> @color/light_black</item>
+        <item name="android:shadowColor"> @color/primaryColor</item>
         <item name="android:shadowRadius">10</item>
         <item name="android:shadowDx">2</item>
         <item name="android:shadowDy">5</item>
         <item name="android:fontFamily"> @font/dkbluesheep</item>
         <item name="android:padding">10dp</item>
-        <item name="android:textColor">@color/button_normal</item>
+        <item name="android:textColor">@color/primaryTextColor</item>
         <item name="android:textSize">30sp</item>
     </style>
 
     <style name="text_style">
+        <item name="android:fontFamily"> @font/dkbluesheep</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:textColor">@color/primaryTextColor</item>
+        <item name="android:textSize">24sp</item>
+    </style>
+
+
+    <style name="text_style_default">
         <item name="android:fontFamily"> @font/dkbluesheep</item>
         <item name="android:padding">10dp</item>
         <item name="android:textColor">@color/black</item>
@@ -67,7 +88,7 @@
         <item name="android:fontFamily"> @font/general</item>
         <item name="buttonStyle">@style/boton</item>
         <item name="editTextStyle">@style/edittexto</item>
-
+        <item name="android:radioButtonStyle">@style/radiobutton</item>
 
 
     </style>

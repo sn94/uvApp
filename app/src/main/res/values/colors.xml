@@ -2,12 +2,14 @@
 <resources>
 
 
+
     <color name="black">#000</color>
     <color name="light_black">#333</color>
     <color name="primaryColor">#4a148c</color>
     <color name="primaryLightColor">#7c43bd</color>
     <color name="primaryDarkColor">#12005e</color>
     <color name="primaryTextColor">#ffffff</color>
+
     <color name="colorAccent">#D81B60</color>
 
     <color name="iuv_bajo">#007700</color>
@@ -21,4 +23,7 @@
     <color name="button_pressed">#E1BEE7</color>
     <color name="button_focused"> #7C4DFF</color>
 
+
+    <color name="white_alpha">#59FFFFFF</color>
+    <color name="black_alpha">#59000000</color>
 </resources>

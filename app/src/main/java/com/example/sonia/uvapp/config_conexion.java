@@ -27,5 +27,6 @@ public class config_conexion extends AppCompatActivity {
         Cliente.host= host.getText().toString();
         Cliente.puerto= port.getText().toString();
         Toast.makeText( getApplicationContext(), "Parametros de configuracion seteados!", Toast.LENGTH_LONG).show();
+        finish();
     }
 }

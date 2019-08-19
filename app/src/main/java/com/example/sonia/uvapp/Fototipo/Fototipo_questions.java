@@ -3,7 +3,10 @@ package com.example.sonia.uvapp.Fototipo;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -13,7 +16,9 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.sonia.uvapp.Inicio;
 import com.example.sonia.uvapp.R;
+import com.example.sonia.uvapp.config_conexion;
 
 public class Fototipo_questions extends AppCompatActivity {
 
@@ -50,6 +55,8 @@ public class Fototipo_questions extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fototipo_questions);
+        Toolbar toolbar= (Toolbar) findViewById( R.id.my_toolbar_questions);
+        setSupportActionBar(toolbar);
 
         questions = getResources().getStringArray(  R.array.test_questions);
 
@@ -65,7 +72,35 @@ public class Fototipo_questions extends AppCompatActivity {
 
 
 
-    void previous_button_action(View v){
+
+    void configurar_conexion(){
+        startActivity( new Intent( this, config_conexion.class));
+    }
+
+    void go_home(){
+        startActivity( new Intent( this, Inicio.class));
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+         getMenuInflater().inflate( R.menu.my_appbar, menu) ;
+         return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        switch ( item.getItemId()){
+            case R.id.menu_config:  configurar_conexion(); break;
+            case R.id.menu_home:  go_home();break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+
+
+
+    public void previous_button_action(View v){
 
         if( questionIndex >= 0 )
             questionIndex= questionIndex -1;
@@ -81,7 +116,7 @@ public class Fototipo_questions extends AppCompatActivity {
         load_questions();
     }
 
-    void forward_button_action(View v){
+    public void forward_button_action(View v){
 
         if(opcion_marcada()){
             if( questionIndex < (questions.length - 1) ) questionIndex= questionIndex + 1;
@@ -106,7 +141,7 @@ public class Fototipo_questions extends AppCompatActivity {
         fq_ant= (Button) findViewById(R.id.fq_ant);
         fq_sig= (Button) findViewById(R.id.fq_sig);
         finish_b= (Button) findViewById( R.id.fq_check);
-        list_opc= (RadioGroup) findViewById(R.id.fq_list_opc);
+       list_opc= (RadioGroup) findViewById(R.id.fq_list_opc);
 
     }
 
@@ -116,7 +151,8 @@ public class Fototipo_questions extends AppCompatActivity {
         tquestion.setText(  questions[  questionIndex ] );
         //lista de opciones
         String[] stringArray =  getResources().getStringArray( questions_options[ questionIndex] );
-        list_opc.removeAllViews();//limpiar opciones anteriores
+        list_opc.removeAllViews();
+        list_opc.clearCheck();
         //Actualizar opciones a marcar para la pregunta actual
         for( int x=0; x< stringArray.length; x++ ){
             RadioButton rb= new RadioButton( this );
@@ -135,7 +171,7 @@ public class Fototipo_questions extends AppCompatActivity {
 
     boolean opcion_marcada(){
         int chequeado=list_opc.getCheckedRadioButtonId();
-
+        Log.i("chequeado ", String.valueOf( chequeado ));
         if( chequeado  < 0 )  Toast.makeText( getBaseContext(), "MARCA UNA OPCION PARA SEGUIR", Toast.LENGTH_SHORT).show();
         return  chequeado > 0;
     }
@@ -166,16 +202,19 @@ public class Fototipo_questions extends AppCompatActivity {
 
 
 
-    void show_phototype( View v){
+    public void show_phototype( View v){
 
-    int f= find_phototype();//1-6
+        if( opcion_marcada() ){
+            int f= find_phototype();//1-6
 
-        Intent i= new Intent( this, Fototipo_result.class);
-        i.putExtra("nick", nick_);
-        i.putExtra("fototipo", String.valueOf(  f ));
-        startActivity( i );
-        finish();
-    }
+            Intent i= new Intent( this, Fototipo_result.class);
+            i.putExtra("nick", nick_);
+            i.putExtra("fototipo", String.valueOf(  f ));
+            startActivity( i );
+            finish();
+        }
+
+    }/****************/
 
 
 

@@ -6,45 +6,73 @@
     android:layout_height="match_parent"
     tools:context=".Fototipo.Fototipo_questions"
     android:id="@+id/fq_contenedor"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@drawable/uvapp_secondary"
+    android:weightSum="4">
 
 
-        <TextView
+    <android.support.v7.widget.Toolbar
+        android:layout_height="70dp"
+        android:layout_width="match_parent"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/my_toolbar_questions"
+        android:background="@color/primaryDarkColor"
+        app:titleTextColor="@color/primaryTextColor"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark"
+        app:titleTextAppearance="@style/appbartitle"
+        android:layout_margin="0dp"
+        />
+
+
+    <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/fq_question_text"/>
-        <RadioGroup
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/fq_list_opc"
-            ></RadioGroup>
+            android:orientation="vertical"
+            android:background="@color/white_alpha"
+            android:layout_weight="3">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/text_style"
+                android:id="@+id/fq_question_text"/>
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/fq_list_opc"
+                ></RadioGroup>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal" >
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/fq_ant"
-                android:visibility="invisible"
-                android:onClick="previous_button_action"
-                android:text="@string/button_ant"/>
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/fq_sig"
-                android:onClick="forward_button_action"
-                android:text="@string/button_sig"/>
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/fq_check"
-                android:visibility="invisible"
-                android:onClick="show_phototype"
-                android:text="@string/Fototipo_questions_button_text1"/>
         </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="bottom"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/fq_ant"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="previous_button_action"
+            android:text="@string/button_ant"
+            android:visibility="invisible" />
+
+        <Button
+            android:id="@+id/fq_sig"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="forward_button_action"
+            android:text="@string/button_sig" />
+
+        <Button
+            android:id="@+id/fq_check"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="show_phototype"
+            android:text="@string/Fototipo_questions_button_text1"
+            android:visibility="invisible" />
+    </LinearLayout>
 
 
         </LinearLayout>

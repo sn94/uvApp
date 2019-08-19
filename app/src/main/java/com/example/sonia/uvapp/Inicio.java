@@ -14,7 +14,13 @@ import android.widget.Toast;
 
 import com.example.sonia.uvapp.Fototipo.Fototipo_main;
 import com.example.sonia.uvapp.Info.Info_iuv;
+import com.example.sonia.uvapp.retrofits.Cliente;
+import com.example.sonia.uvapp.retrofits.Response;
+import com.example.sonia.uvapp.retrofits.webapi;
 import com.example.sonia.uvapp.slideshow_fototipos_data.ScreenSlidePagerActivity;
+
+import retrofit2.Call;
+import retrofit2.Callback;
 
 public class Inicio extends AppCompatActivity {
 
@@ -58,6 +64,11 @@ public class Inicio extends AppCompatActivity {
         phot.setText( "FOTOTIPO "+ preferences.getString( "fototipo", ""));
     }
 
+
+    String getNick(){
+        SharedPreferences preferences = getSharedPreferences("uvapp", Context.MODE_PRIVATE);
+        return preferences.getString("nick", "");
+    }
     boolean existe_userdata(){
         SharedPreferences preferences = getSharedPreferences("uvapp", Context.MODE_PRIVATE);
         String f= preferences.getString("fototipo", "");
@@ -70,15 +81,47 @@ public class Inicio extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void borrar_perfil(View v){
+
+    void deleteFromSharedPref(){
+
         SharedPreferences preferences = getSharedPreferences("uvapp", Context.MODE_PRIVATE);
         SharedPreferences.Editor edit = preferences.edit();
         edit.clear();
         edit.apply();
         Toast.makeText( getBaseContext(), "Perfil borrado!", Toast.LENGTH_SHORT).show();
-        Intent i= new Intent( this, Inicio.class);
-        startActivity( i);
-        finish();
+    }
+    public void borrar_perfil(View v){
+        //borrar del servidor
+        webapi w= Cliente.buildService( webapi.class);
+        Call<Response> responseCall = w.deleteUser(  getNick()  );
+        responseCall.enqueue(new Callback<Response>() {
+            @Override
+            public void onResponse(Call<Response> call, retrofit2.Response<Response> response) {
+                Response body = response.body();
+                if(body != null ){
+                    if(  body.getEstado() != 200 ){
+                        Toast.makeText( getBaseContext(), body.getMsg(), Toast.LENGTH_LONG).show();
+                    }else{
+                        Toast.makeText( getBaseContext(), body.getMsg(), Toast.LENGTH_LONG).show();
+                        deleteFromSharedPref();// datos de usuario en preferencias compartidas
+                        //abrir inicio con autenticacion
+                        startActivity(  new Intent( getApplicationContext(), Inicio.class) );
+                        finish();
+                    }
+
+                }else{
+                    Toast.makeText( getBaseContext(), "No hay respuesta del servidor", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Response> call, Throwable t) {
+                Toast.makeText( getBaseContext(), "HUBO UN ERROR DURANTE LA TRANSACCION", Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
+
     }
 
 

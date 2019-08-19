@@ -6,7 +6,10 @@ import android.content.SharedPreferences;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -16,6 +19,7 @@ import android.widget.Toast;
 import com.example.sonia.uvapp.Info.Info_fototipo_single;
 import com.example.sonia.uvapp.Inicio;
 import com.example.sonia.uvapp.R;
+import com.example.sonia.uvapp.config_conexion;
 import com.example.sonia.uvapp.retrofits.Cliente;
 import com.example.sonia.uvapp.retrofits.Data;
 import com.example.sonia.uvapp.retrofits.Response;
@@ -38,7 +42,8 @@ public class Fototipo_result extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fototipo_result);
-
+        Toolbar toolbar= (Toolbar) findViewById( R.id.my_toolbar_result);
+        setSupportActionBar(toolbar);
 
         obtener_token();
 
@@ -49,6 +54,38 @@ public class Fototipo_result extends AppCompatActivity {
         TextView txt_foto= (TextView)findViewById( R.id.fr_fototipo); txt_foto.setText( foto);
         determ_fps();
     }
+
+
+
+
+
+    void configurar_conexion(){
+        startActivity( new Intent( this, config_conexion.class));
+    }
+
+    void go_home(){
+        startActivity( new Intent( this, Inicio.class));
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+            getMenuInflater().inflate( R.menu.my_appbar, menu) ;
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        switch ( item.getItemId()){
+            case R.id.menu_config:  configurar_conexion(); break;
+            case R.id.menu_home:  go_home();break;
+        }
+        return super.onOptionsItemSelected(item);
+
+}
+
+
+
 
     //clave de servidor  AAAAJI-qXfU:APA91bGsyhz1yVUw45K-nNq3jyK-VFsC-ORkItNkUpHut_Bd0g6H122CHPwejKlrFngiihRb8MwmmoWS-TPUGzC3S8iB_DdzzXVO7TCtxOeXOwep_lvJOIhzDfFzuEwBaCuNe4ZxUYnZ
     //api web key  AIzaSyCdRbuLe2MckTBa_9XDLveUY-bTgEI6Ff0
@@ -85,10 +122,12 @@ public class Fototipo_result extends AppCompatActivity {
         /**PETICION CON RETROFIT***************/
 
         webapi webapi=  new Cliente().buildService(com.example.sonia.uvapp.retrofits.webapi.class );
+
         /** REQUEST BODY */
         Data datos= new Data();
         datos.setNick( nick_ );
         datos.setToken(  token );
+
         /*** REQUEST **/
         Call<Response> respuesta=  webapi.signup( datos );
         //guardar el perfil en firestore
@@ -98,7 +137,7 @@ public class Fototipo_result extends AppCompatActivity {
             public void onResponse(Call<Response> call, retrofit2.Response<Response> response) {
                 Response body = response.body();
                 if(body != null ){
-                    Toast.makeText( getBaseContext(), body.getMsg(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText( getBaseContext(), body.getMsg(), Toast.LENGTH_LONG).show();
                     guardar_userdata_locally();// datos de usuario en preferencias compartidas
                     //abrir inicio con autenticacion
                     startActivity(  new Intent( getApplicationContext(), Inicio.class) );
