@@ -12,7 +12,7 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.sonia.uvapp.Fototipo.Fototipo_main;
+import com.example.sonia.uvapp.Fototipo.Main_screen_fototipo_tests;
 import com.example.sonia.uvapp.Info.Info_iuv;
 import com.example.sonia.uvapp.retrofits.Cliente;
 import com.example.sonia.uvapp.retrofits.Response;
@@ -77,7 +77,7 @@ public class Inicio extends AppCompatActivity {
     }
 
     public void nuevo_perfil( View v){
-        Intent intent = new Intent( this, Fototipo_main.class);
+        Intent intent = new Intent( this, Main_screen_fototipo_tests.class);
         startActivity(intent);
     }
 

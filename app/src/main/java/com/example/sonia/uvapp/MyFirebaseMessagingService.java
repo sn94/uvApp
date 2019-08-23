@@ -1,11 +1,19 @@
 package com.example.sonia.uvapp;
 
 
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.v4.app.NotificationCompat;
+import android.support.v4.app.NotificationManagerCompat;
 import android.util.Log;
 
-import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
+
+import java.util.Map;
 
 import static android.content.ContentValues.TAG;
 
@@ -41,17 +49,13 @@ public class MyFirebaseMessagingService  extends FirebaseMessagingService {
 
         // Check if message contains a data payload.
         if (remoteMessage.getData().size() > 0) {
-            Log.d(TAG, "Message data payload: " + remoteMessage.getData());
+            Map<String,String> dt= remoteMessage.getData();
+            String titulo= dt.get("title");
+            String msg= dt.get("body");
+            showNotification( titulo, msg);
 
-            if (/* Check if data needs to be processed by long running job */ true) {
-        // For long-running tasks (10 seconds or more) use Firebase Job Dispatcher.
-        // scheduleJob();
-        } else {
-            // Handle message within 10 seconds
-            // handleNow();
-        }
 
-}
+        }/****/
 
             // Check if message contains a notification payload.
         if (remoteMessage.getNotification() != null) {
@@ -60,6 +64,35 @@ public class MyFirebaseMessagingService  extends FirebaseMessagingService {
 
                 // Also if you intend on generating your own notifications as a result of a received FCM
                 // message, here is where that should be initiated. See sendNotification method below.
+        }
+
+
+
+
+
+
+        void showNotification(String titulo, String msg){
+            // Create an explicit intent for an Activity in your app
+            Intent intent = new Intent(this, Alerta.class);
+            intent.setFlags( Intent.FLAG_ACTIVITY_SINGLE_TOP);
+           // intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            Bundle bundle= new Bundle(); bundle.putString( "title", titulo);bundle.putString( "body", msg );
+            intent.putExtras( bundle);
+            PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+
+            NotificationCompat.Builder builder = new NotificationCompat.Builder(this)
+                    .setSmallIcon(R.drawable.uvapp_logo)
+                    .setContentTitle( titulo)
+                    .setContentText( msg)
+                    .setContentIntent( pendingIntent )
+                    .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                    .setAutoCancel( true );
+            //Show the notification
+            NotificationManagerCompat notificationManager = NotificationManagerCompat.from(this);
+            // notificationId is a unique int for each notification that you must define
+            notificationManager.notify( 1994, builder.build());
+
+
         }
 
 }

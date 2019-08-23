@@ -5,7 +5,7 @@ import android.os.Bundle;
 
 import com.example.sonia.uvapp.R;
 
-public class Fototipo_help extends AppCompatActivity {
+public class Ayuda_test_fototipo extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

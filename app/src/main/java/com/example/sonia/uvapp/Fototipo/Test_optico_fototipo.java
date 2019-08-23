@@ -1,7 +1,5 @@
 package com.example.sonia.uvapp.Fototipo;
 
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothSocket;
@@ -14,10 +12,8 @@ import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -28,13 +24,10 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.HashMap;
-import java.util.Map;
-import java.util.stream.Collectors;
 
 
-public class Fototipo_visual_test extends AppCompatActivity {
+public class Test_optico_fototipo extends AppCompatActivity {
 
 
 
@@ -116,7 +109,7 @@ public class Fototipo_visual_test extends AppCompatActivity {
 
     public   void show_result(View v){
         String f=  FototipoValue;//1-6
-        Intent i= new Intent( this, Fototipo_result.class);
+        Intent i= new Intent( this, Resultado_test_fototipo.class);
         i.putExtra("nick", nick_);
         i.putExtra("fototipo",   f );
         startActivity( i );

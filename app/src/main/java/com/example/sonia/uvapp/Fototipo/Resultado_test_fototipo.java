@@ -32,7 +32,7 @@ import com.google.firebase.iid.InstanceIdResult;
 import retrofit2.Call;
 import retrofit2.Callback;
 
-public class Fototipo_result extends AppCompatActivity {
+public class Resultado_test_fototipo extends AppCompatActivity {
 
 
     String nick_="",  foto="";

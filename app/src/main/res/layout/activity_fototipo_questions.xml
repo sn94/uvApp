@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Fototipo.Fototipo_questions"
+    tools:context=".Fototipo.Test_fitzpatrick_fototipo"
     android:id="@+id/fq_contenedor"
     android:orientation="vertical"
     android:background="@drawable/uvapp_secondary"

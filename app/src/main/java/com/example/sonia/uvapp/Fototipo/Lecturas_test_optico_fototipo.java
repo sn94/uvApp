@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 import com.example.sonia.uvapp.R;
 
-public class Fototipo_visual_test_progress extends Fragment {
+public class Lecturas_test_optico_fototipo extends Fragment {
 
 
     TextView progress_test_label,progress_test_fototipo,progress_test_rgb= null;

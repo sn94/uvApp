@@ -7,21 +7,17 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 
 import com.example.sonia.uvapp.Inicio;
 import com.example.sonia.uvapp.R;
 import com.example.sonia.uvapp.config_conexion;
 
-public class Fototipo_main extends AppCompatActivity {
+public class Main_screen_fototipo_tests extends AppCompatActivity {
 
     EditText usernick;
     Button b_help;
@@ -84,7 +80,7 @@ public class Fototipo_main extends AppCompatActivity {
 
         if( userInput())
         {
-            Intent intent = new Intent( getApplicationContext(), Fototipo_visual_test.class);
+            Intent intent = new Intent( getApplicationContext(), Test_optico_fototipo.class);
             intent.putExtra("nick",  usernick.getText().toString());
             startActivity(intent);
 
@@ -96,7 +92,7 @@ public class Fototipo_main extends AppCompatActivity {
 
     public void test_fitzpatrick( View v){
         if( userInput()){
-            Intent intent = new Intent( getApplicationContext(), Fototipo_questions.class);
+            Intent intent = new Intent( getApplicationContext(), Test_fitzpatrick_fototipo.class);
             intent.putExtra("nick",  usernick.getText().toString());
             startActivity(intent);
         }
@@ -106,7 +102,7 @@ public class Fototipo_main extends AppCompatActivity {
 
 
     public void show_help(View v){
-        startActivity( new Intent( getBaseContext(), Fototipo_help.class));
+        startActivity( new Intent( getBaseContext(), Ayuda_test_fototipo.class));
     }
 
 }

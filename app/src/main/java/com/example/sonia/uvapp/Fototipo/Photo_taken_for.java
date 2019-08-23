@@ -18,7 +18,7 @@ import com.example.sonia.uvapp.retrofits.webapi;
 import java.io.File;
 import java.io.IOException;
 
-public class Fototipo_phototype extends AppCompatActivity {
+public class Photo_taken_for extends AppCompatActivity {
 
 
 

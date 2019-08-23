@@ -8,9 +8,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -20,7 +18,7 @@ import com.example.sonia.uvapp.Inicio;
 import com.example.sonia.uvapp.R;
 import com.example.sonia.uvapp.config_conexion;
 
-public class Fototipo_questions extends AppCompatActivity {
+public class Test_fitzpatrick_fototipo extends AppCompatActivity {
 
     
     int score= 0;
@@ -207,7 +205,7 @@ public class Fototipo_questions extends AppCompatActivity {
         if( opcion_marcada() ){
             int f= find_phototype();//1-6
 
-            Intent i= new Intent( this, Fototipo_result.class);
+            Intent i= new Intent( this, Resultado_test_fototipo.class);
             i.putExtra("nick", nick_);
             i.putExtra("fototipo", String.valueOf(  f ));
             startActivity( i );
